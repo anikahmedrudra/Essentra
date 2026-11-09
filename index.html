@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<base href="/"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#0D0B0F"/>
+<title id="pageTitle">Essentra — The Essence of Elegance</title>
+<meta name="description" content="Essentra — premium authentic fragrances and attars in Bangladesh. Shop men's, women's and unisex perfumes, find your signature scent and enjoy fast delivery with cash on delivery."/>
+<link rel="canonical" href="https://www.myessentra.live/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Essentra"/>
+<meta property="og:title" content="Essentra — The Essence of Elegance"/>
+<meta property="og:description" content="Premium authentic fragrances. Wear your finest chapter."/>
+<meta property="og:url" content="https://www.myessentra.live/"/>
+<meta property="og:image" content="https://www.myessentra.live/images/hero-logo.webp"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="preload" as="image" href="images/hero-logo.webp" type="image/webp" fetchpriority="high"/>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
+<link rel="apple-touch-icon" href="images/logo-mark.png"/>
+<link rel="stylesheet" href="style.css?v=20261124"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"/></noscript>
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-inner"><span class="preloader-logo">Essen<span>tra</span></span><div class="preloader-bar"><div class="preloader-bar-fill"></div></div></div></div>
+<div id="scrollProgress"></div>
+<div id="cursorGlow" aria-hidden="true"></div>
+
+<button id="backToTopBtn" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div class="promo-marquee" id="promoBar"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/" aria-label="Essentra — home" onclick="showHomePage();scrollToTop();return false;" style="display:flex;align-items:center;gap:.65rem;cursor:pointer;text-decoration:none"><img src="images/logo.webp" alt="Essentra" width="42" height="42" style="height:42px;width:auto;object-fit:contain;display:block"/><span class="dynamicSiteName" id="navSiteName">Essentra</span></a>
+  <div class="nav-links">
+    <a href="/" id="navLinkHome" onclick="showHomePage();window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+    <a href="/collection" id="navLinkCollection" onclick="showCollectionPage();return false;">Collection</a>
+    <a href="/#about" id="navLinkStory" onclick="showHomePage();setActiveNavLink('navLinkStory');setTimeout(function(){document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});},50);return false;">Our Story</a>
+    <a href="/scent-finder" id="navLinkScent" onclick="showScentFinderPage();setActiveNavLink('navLinkScent');return false;">Find Your Scent</a>
+    <a href="/#contact" id="navLinkContact" onclick="openContactOverlay();return false;">Contact</a>
+  </div>
+  <div class="nav-right">
+    <div class="nav-icon-group">
+      <button class="nav-icon-btn" onclick="openSearchOverlay()" title="Search" aria-label="Search">🔍</button>
+      <button class="nav-icon-btn" onclick="handleWishlistNavClick()" title="Wish List" aria-label="Wish list">
+        ♡<span class="nav-icon-badge" id="wishlistCount">0</span>
+      </button>
+      <button class="nav-icon-btn" id="navAccountBtn" onclick="handleAccountClick()" title="Login" aria-label="Account">👤</button>
+      <button class="nav-icon-btn" onclick="toggleCart()" title="Cart" aria-label="Cart">
+        🛍<span class="nav-icon-badge" id="cartCount">0</span>
+      </button>
+    </div>
+    <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mm-backdrop" id="mmBackdrop" onclick="toggleMobileMenu(false)"></div>
+<aside class="mm-drawer" id="mmDrawer" aria-hidden="true">
+  <div class="mm-head"><span class="mm-title">Menu</span><button class="mm-close" onclick="toggleMobileMenu(false)" aria-label="Close menu">&#10005;</button></div>
+  <div class="mm-links">
+    <a href="/" onclick="toggleMobileMenu(false);showHomePage();window.scrollTo({top:0,behavior:'smooth'});return false;">Home</a>
+    <a href="/collection" onclick="toggleMobileMenu(false);showCollectionPage();return false;">Collection</a>
+    <a href="/#about" onclick="toggleMobileMenu(false);showHomePage();setTimeout(function(){document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});},80);return false;">Our Story</a>
+    <a href="/scent-finder" onclick="toggleMobileMenu(false);showScentFinderPage();return false;">Find Your Scent</a>
+    <a href="/#contact" onclick="toggleMobileMenu(false);openContactOverlay();return false;">Contact</a>
+    <a href="/track-order" onclick="toggleMobileMenu(false);openTrackOverlay();return false;">Track Order</a>
+  </div>
+  <div class="mm-foot">
+    <button class="btn-primary" onclick="toggleMobileMenu(false);handleAccountClick();">My Account</button>
+    <button class="btn-ghost" onclick="toggleMobileMenu(false);handleWishlistNavClick();">Wish List</button>
+  </div>
+</aside>
+
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-overlay-close" onclick="closeSearchOverlay()" title="Close" aria-label="Close search">✕</button>
+  <div class="search-overlay-wrap">
+    <div class="search-overlay-box">
+      <input aria-label="Start typing to search" name="searchOverlayInput" id="searchOverlayInput" placeholder="Start typing to search" oninput="liveSearch(this.value)" onkeydown="if(event.key==='Enter')doNavSearch()" autocomplete="off"/>
+      <button class="search-overlay-submit" onclick="doNavSearch()" title="Search" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<!-- HOME PAGE CONTENT -->
+<div id="homePage">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">New Arrivals</div>
+      <h1 class="hero-title">Wear Your<br/><em>Finest</em><br/>Chapter</h1>
+      <div class="hero-tagline">The Essence of Elegance</div>
+      <p class="hero-desc">Discover rare fragrances curated for those who understand that a scent is not merely worn — it is remembered.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showCollectionPage()">Explore Collection</button>
+        <button class="btn-ghost" onclick="scrollToSection('contact')">Contact Us</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-emblem">
+        <div class="bottle-glow"></div>
+        <div class="hero-orbit-ring"></div>
+        <div class="hero-orbit-ring reverse"></div>
+        <div class="hero-orbit-ring orbit3"></div>
+        <div class="hero-orbit-ring orbit4"></div>
+        <div class="hero-orbit-ring orbit5"></div>
+        <div class="hero-sparkle" style="width:6px;height:6px;left:22%;top:62%;animation-delay:0s"></div>
+        <div class="hero-sparkle" style="width:9px;height:9px;left:74%;top:66%;animation-delay:1.1s"></div>
+        <div class="hero-sparkle" style="width:5px;height:5px;left:48%;top:72%;animation-delay:2.2s"></div>
+        <div class="hero-sparkle" style="width:7px;height:7px;left:62%;top:52%;animation-delay:3.1s"></div>
+        <div class="hero-sparkle" style="width:5px;height:5px;left:34%;top:48%;animation-delay:1.7s"></div>
+        <img class="hero-logo-img" src="images/hero-logo.webp" alt="Essentra Fragrances" width="720" height="720" fetchpriority="high" decoding="async"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- SHOP BY CATEGORY -->
+<section style="max-width:1200px">
+  <div style="text-align:center" class="reveal">
+    <h2 class="section-title">Shop by <em>Category</em></h2>
+    <p style="font-size:.85rem;color:var(--muted);max-width:420px;margin:0 auto">Find the perfect fragrance for every mood and occasion.</p>
+  </div>
+  <div class="category-grid" id="homeCategoryGrid"></div>
+</section>
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- CATALOG (HOMEPAGE — BEST SELLERS ONLY) -->
+<section id="catalog" style="max-width:1200px">
+  <div class="catalog-header reveal">
+    <div>
+      <div class="section-label">Customer Favorites</div>
+      <h2 class="section-title">Best <em>Selling</em> Fragrances</h2>
+    </div>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+  <div id="emptyState" style="display:none;text-align:center;padding:4rem;color:var(--muted);font-size:.84rem">
+    No best sellers yet. Mark a product as Best Seller from the <a href="/admin/dashboard" onclick="showAuthPage();return false;" style="color:var(--gold);text-decoration:none">Admin Panel</a>, or <a href="/collection" onclick="showCollectionPage();return false;" style="color:var(--gold);text-decoration:none">browse the full collection</a>.
+  </div>
+  <div style="text-align:center;margin-top:2.6rem">
+    <button class="filter-btn" onclick="showCollectionPage()" style="white-space:nowrap;padding:.85rem 2.2rem;font-size:.72rem;letter-spacing:.16em">View All Collection →</button>
+  </div>
+</section>
+
+<!-- RECENTLY VIEWED -->
+<section id="recentSection" style="max-width:1200px;display:none">
+  <div class="catalog-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+    <div>
+      <div class="section-label">Pick Up Where You Left Off</div>
+      <h2 class="section-title">Decants You <em>Looked At</em></h2>
+    </div>
+    <button class="filter-btn" onclick="clearRecentlyViewed()" style="white-space:nowrap;padding:.7rem 1.6rem;font-size:.68rem;letter-spacing:.16em">Clear History</button>
+  </div>
+  <div class="product-grid" id="recentGrid"></div>
+</section>
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- REVIEWS -->
+<section class="rv-section" id="reviews">
+  <div class="rv-wrap">
+    <div class="rv-left reveal">
+      <div class="rv-eyebrow">Reviews</div>
+      <h2 class="rv-title">Worn. Loved.<br/>Repeated.</h2>
+      <p class="rv-sub">Unfiltered words from people who actually wear them &mdash; the true feedback.</p>
+      <div class="rv-summary" id="rvSummary" style="display:none"></div>
+      <button class="rv-btn rv-btn-dark" onclick="openReviewModal()">Write a review</button>
+    </div>
+    <div class="rv-right">
+      <div class="rv-track" id="rvTrack" onscroll="updateReviewNav()"></div>
+      <div class="rv-foot">
+        <div class="rv-hint" id="rvHint">Swipe to see more &larr; &rarr;</div>
+        <div class="rv-nav" id="rvNav">
+          <button id="rvPrev" onclick="scrollReviews(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <button id="rvNext" onclick="scrollReviews(1)" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<!-- END HOME PAGE CONTENT -->
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- COLLECTION PAGE (FULL CATALOG) -->
+<div id="collectionPage" style="display:none">
+  <section style="max-width:1300px;padding-top:7.65rem">
+    <div class="catalog-header">
+      <div>
+        <div class="section-label">Our Collection</div>
+        <h2 class="section-title">Fine <em>Fragrances</em></h2>
+      </div>
+    </div>
+
+    <div class="shop-layout">
+      <div class="sf-backdrop" id="sfBackdrop" onclick="toggleShopFilters(false)"></div>
+      <aside class="shop-sidebar" id="shopSidebar">
+        <div class="sf-sheet-head"><span>Filters</span><button type="button" onclick="toggleShopFilters(false)" aria-label="Close filters">&#10005;</button></div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">Gender</div>
+          <div id="categoryChecklist"></div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">Season</div>
+          <div id="seasonChecklist"></div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">Brand</div>
+          <div class="brand-checklist" id="brandChecklist"></div>
+          <button class="brand-see-more" id="brandSeeMoreBtn" onclick="toggleBrandSeeMore()">
+            <span class="brand-see-more-icon">+</span> See More
+          </button>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-title">Price</div>
+          <div class="price-range-labels">
+            <span>৳0</span>
+            <span id="priceCurrentLabel">৳10,000</span>
+          </div>
+          <div class="price-slider-wrap">
+            <input aria-label="Maximum price" name="priceMaxInput" type="range" id="priceMaxInput" min="0" max="10000" step="100" value="10000" oninput="onPriceSliderInput(this.value)"/>
+          </div>
+        </div>
+        <button class="sidebar-clear-all-btn" onclick="clearAllFilters()">Clear Filters</button>
+        <button class="sf-apply-btn" type="button" onclick="toggleShopFilters(false)">Show Results</button>
+      </aside>
+
+      <div class="shop-main">
+        <div class="shop-main-header">
+          <div class="results-count" id="shopResultsCount">Showing 0 results</div>
+          <div class="shop-main-controls">
+            <button class="filter-open-btn" type="button" onclick="toggleShopFilters(true)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>Filters</button>
+            <select aria-label="Sort products" name="sortSelect" class="sort-select" id="sortSelect" onchange="applySort()">
+              <option value="default">Sort: Featured</option>
+              <option value="latest">Sort: Latest</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="name_asc">Name: A–Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" id="collectionGrid"></div>
+        <div id="collectionEmptyState" style="display:none;text-align:center;padding:4rem;color:var(--muted);font-size:.84rem">
+          No fragrances match this filter.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Born from a love of<br/><em>rare beauty</em></h2>
+      <p style="font-size:.88rem;line-height:1.9;color:var(--muted);margin-bottom:1.4rem"><span class="dynamicSiteName">Essentra</span> was founded on one belief: that a great fragrance is not a luxury — it is a language. We source and curate decants from the world's most celebrated perfume houses, so you can explore and wear what moves you.</p>
+      <p style="font-size:.88rem;line-height:1.9;color:var(--muted)">Every bottle is authentic, handled with care, and available in the exact quantity that suits your lifestyle.</p>
+    </div>
+    <div class="about-stats reveal" style="transition-delay:120ms">
+      <div><div class="stat-num">100%</div><div class="stat-label">Authentic Decants</div></div>
+      <div><div class="stat-num">50+</div><div class="stat-label">Fragrances</div></div>
+      <div><div class="stat-num">Fast</div><div class="stat-label">Nationwide Delivery</div></div>
+      <div><div class="stat-num">∞</div><div class="stat-label">Signature Moments</div></div>
+    </div>
+  </div>
+</section>
+
+<div style="padding:0 3rem"><div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div></div>
+
+<!-- MEMBERSHIP GATE — shown only when a guest tries to check out -->
+<div class="modal-overlay membership-overlay" id="membershipOverlay" onclick="if(event.target===this)closeMembershipGate()">
+  <div class="membership-card" role="dialog" aria-modal="true" aria-labelledby="membershipTitle">
+    <button class="modal-close" onclick="closeMembershipGate()" title="Close" aria-label="Close">✕</button>
+    <div class="membership-kicker">ESSENTRA MEMBERSHIP</div>
+    <div class="auth-title" id="membershipTitle">Membership <em>Required</em></div>
+    <p class="membership-copy">To place an order with Essentra, you need to have a registered account. Please sign in or create an account to continue.</p>
+    <div class="membership-actions">
+      <button class="submit-product-btn" onclick="openMembershipAuth('login')">I Already Have an Account</button>
+      <button class="membership-secondary" onclick="openMembershipAuth('register')">I'm New to Essentra</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN / REGISTER MODAL (CUSTOMERS & ADMIN) — pops up like search overlay -->
+<div class="modal-overlay" id="authOverlay">
+  <div class="auth-card">
+    <button class="modal-close" onclick="closeAuthOverlay()" title="Close" aria-label="Close">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="authTab_login" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="auth-tab" id="authTab_register" onclick="switchAuthTab('register')">Create Account</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="authForm_login">
+      <div class="auth-title">Welcome <em>Back</em></div>
+      <div class="auth-sub">Sign in to track orders and check out faster.<br/>Store administrators can also sign in here.</div>
+      <div class="auth-notice" id="loginNotice" role="status" style="display:none"></div>
+      <div class="auth-form">
+        <input autocomplete="username" aria-label="Email or Username" name="login-email" class="form-input" id="login-email" placeholder="Email or Username" onkeydown="if(event.key==='Enter')doLogin()"/>
+        <div class="pw-wrap"><input autocomplete="current-password" aria-label="Password" name="login-password" class="form-input" id="login-password" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'login-password')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <div class="auth-forgot-link"><button type="button" class="link-btn" onclick="showForgotPassword()">Forgot password?</button></div>
+        <div class="auth-error" id="loginError">Incorrect email/username or password.</div>
+        <button class="submit-product-btn" id="loginSubmitBtn" onclick="doLogin()">Sign In</button>
+      </div>
+      <div class="auth-link-row">Don't have an account? <button type="button" class="link-btn" onclick="switchAuthTab('register')">Create one</button></div>
+    </div>
+
+    <!-- FORGOT PASSWORD FORM -->
+    <div id="authForm_forgot" style="display:none">
+      <div class="auth-title">Reset <em>Password</em></div>
+      <div class="auth-sub" id="forgotSub">Enter the email or username linked to your customer account. We’ll send a six-digit code that expires in 5 minutes.</div>
+      <div class="auth-form" id="forgotStep1">
+        <input autocomplete="username" aria-label="Email or Username" name="forgot-identifier" class="form-input" id="forgot-identifier" placeholder="Email or Username" onkeydown="if(event.key==='Enter')requestPasswordReset()"/>
+        <div class="auth-error" id="forgotError">We couldn't find an account with that email or username.</div>
+        <button class="submit-product-btn" id="forgotRequestBtn" onclick="requestPasswordReset()">Send Reset Code</button>
+      </div>
+      <div class="auth-form" id="forgotStep2" style="display:none">
+        <input aria-label="6-digit reset code" name="forgot-otp" class="form-input" id="forgot-otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit reset code"/>
+        <div class="pw-wrap"><input autocomplete="new-password" aria-label="New Password (min 6 chars)" name="forgot-newpass" class="form-input" id="forgot-newpass" type="password" placeholder="New Password (min 6 chars)"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'forgot-newpass')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <div class="pw-wrap"><input autocomplete="new-password" aria-label="Confirm New Password" name="forgot-confirm" class="form-input" id="forgot-confirm" type="password" placeholder="Confirm New Password" onkeydown="if(event.key==='Enter')verifyPasswordReset()"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'forgot-confirm')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <div class="auth-error" id="forgotResetError">Please check your details and try again.</div>
+        <button class="submit-product-btn" id="forgotVerifyBtn" onclick="verifyPasswordReset()">Reset Password</button>
+      </div>
+      <div class="auth-link-row">Remembered it? <button type="button" class="link-btn" onclick="switchAuthTab('login')">Back to Sign In</button></div>
+    </div>
+
+    <!-- VERIFY EMAIL PANEL (shown after sign-up, or when an unverified account tries to sign in) -->
+    <div id="authForm_verify" style="display:none">
+      <div class="auth-title">Check Your <em>Email</em></div>
+      <div class="auth-sub" id="verifySub">We've sent a verification link to your email. Click it to verify your account, then sign in.</div>
+      <div class="auth-form">
+        <div class="auth-notice" id="verifyNotice" role="status" style="display:none"></div>
+        <button class="submit-product-btn" id="verifyResendBtn" type="button" onclick="resendVerificationEmail()">Resend Verification Email</button>
+        <div class="auth-sub" style="font-size:.74rem;margin:0">Can't see it? Check your spam or promotions folder. The link works for 24 hours.</div>
+      </div>
+      <div class="auth-link-row">Already verified? <button type="button" class="link-btn" onclick="switchAuthTab('login')">Sign in</button></div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="authForm_register" style="display:none">
+      <div class="auth-title">Create <em>Account</em></div>
+      <div class="auth-sub">Join <span class="dynamicSiteName">Essentra</span> to save your details, track orders, and check out faster.</div>
+      <div class="auth-form">
+        <input autocomplete="name" aria-label="Full Name" name="reg-name" class="form-input" id="reg-name" placeholder="Full Name"/>
+        <input autocomplete="username" aria-label="Username" name="reg-username" class="form-input" id="reg-username" placeholder="Username"/>
+        <input autocomplete="email" aria-label="Email Address" name="reg-email" class="form-input" id="reg-email" placeholder="Email Address"/>
+        <input autocomplete="tel" inputmode="tel" aria-label="Phone Number" name="reg-phone" class="form-input" id="reg-phone" placeholder="Phone Number"/>
+        <div class="pw-wrap"><input autocomplete="new-password" aria-label="Password (min 6 chars)" name="reg-password" class="form-input" id="reg-password" type="password" placeholder="Password (min 6 chars)"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'reg-password')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <div class="pw-wrap"><input autocomplete="new-password" aria-label="Confirm Password" name="reg-confirm" class="form-input" id="reg-confirm" type="password" placeholder="Confirm Password" onkeydown="if(event.key==='Enter')doRegister()"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'reg-confirm')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <label class="auth-terms" id="regTermsWrap" for="reg-terms"><input type="checkbox" id="reg-terms" name="reg-terms" onchange="this.parentNode.classList.remove('auth-terms-err')"/><span>I agree to the <a href="/policy/terms" target="_blank" rel="noopener" onclick="return openTermsInNewTab(event)">Terms &amp; Conditions</a></span></label>
+        <div class="auth-error" id="registerError">Please check your details and try again.</div>
+        <button class="submit-product-btn" id="registerSubmitBtn" onclick="doRegister()">Create Account</button>
+      </div>
+      <div class="auth-link-row">Already have an account? <button type="button" class="link-btn" onclick="switchAuthTab('login')">Sign in</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOMER DETAIL MODAL (ADMIN) -->
+<div class="modal-overlay" id="customerDetailModal" onclick="if(event.target===this)closeCustomerDetail()">
+  <div class="cust-detail-card">
+    <button class="modal-close" onclick="closeCustomerDetail()" title="Close" aria-label="Close">✕</button>
+    <div class="cust-detail-scroll">
+      <div class="cust-detail-head">
+        <div id="cdAvatarWrap"></div>
+        <div>
+          <div class="cust-detail-name" id="cdName"></div>
+          <div class="cust-detail-username" id="cdUsername"></div>
+          <div class="cust-detail-email" id="cdEmail"></div>
+        </div>
+      </div>
+      <div class="cust-detail-stats" id="cdStats"></div>
+      <div class="cust-detail-section" id="cdAddressSection" style="display:none">
+        <div class="cust-detail-section-title">Saved Address</div>
+        <div class="cust-detail-address" id="cdAddress"></div>
+      </div>
+      <div class="cust-detail-section">
+        <div class="cust-detail-section-title">Order History</div>
+        <div id="cdOrders"></div>
+      </div>
+      <div class="cust-detail-section">
+        <div class="cust-detail-section-title">Wish List</div>
+        <div class="cust-wish-grid" id="cdWishlist"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOMER ACCOUNT PAGE (DASHBOARD: PROFILE / PASSWORD / ORDERS / ADDRESSES / WISHLIST) -->
+<div id="accountPage" style="display:none">
+  <div class="account-wrap">
+    <div class="adm-topbar">
+      <div class="adm-brand">
+        <div class="adm-brand-mark"><img src="images/logo-mark.webp" alt="Essentra" width="64" height="64" loading="lazy"/></div>
+        <div>
+          <div class="adm-brand-name">Essentra</div>
+          <div class="adm-brand-sub">My Account</div>
+        </div>
+      </div>
+      <div class="adm-user">
+        <div class="adm-avatar" id="acct-avatar-view">—</div>
+        <div class="adm-user-info">
+          <div class="adm-user-name" id="acct-name">—</div>
+          <div class="adm-user-role"><span id="acct-username-view"></span> · <span id="acct-email">—</span></div>
+        </div>
+        <button class="adm-logout" onclick="doLogout()" title="Log out">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Log out</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="acct-layout">
+    <aside class="acct-sidebar">
+    <div class="acct-nav" id="acctNav">
+      <div class="nav-group">Overview</div>
+      <button type="button" class="acct-nav-btn active" data-acct="dashboard" onclick="showAcctSection('dashboard')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</button>
+      <div class="nav-group">Shopping</div>
+      <button type="button" class="acct-nav-btn" data-acct="orders" onclick="showAcctSection('orders')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a2 2 0 0 1 2 2v16l-5-3-5 3V5a2 2 0 0 1 2-2Z"/><path d="M9 9h6M9 13h6"/></svg>My Orders</button>
+      <button type="button" class="acct-nav-btn" data-acct="track" onclick="showAcctSection('track')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg> Track Order</button>
+      <button type="button" class="acct-nav-btn" data-acct="points" onclick="showAcctSection('points')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Essentra Points</button>
+      <button type="button" class="acct-nav-btn" data-acct="wishlist" onclick="showAcctSection('wishlist')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Wish List</button>
+      <button type="button" class="acct-nav-btn" data-acct="addresses" onclick="showAcctSection('addresses')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Addresses</button>
+      <div class="nav-group">Account</div>
+      <button type="button" class="acct-nav-btn" data-acct="profile" onclick="showAcctSection('profile')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>Edit Profile</button>
+      <button type="button" class="acct-nav-btn" data-acct="password" onclick="showAcctSection('password')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Change Password</button>
+    </div>
+    </aside>
+    <div class="acct-main">
+
+    <!-- DASHBOARD GRID -->
+    <div id="acctView_dashboard">
+      <div class="dash-hero">
+        <div>
+          <div class="dash-hero-title" id="acctHeroTitle">Welcome back</div>
+          <div class="dash-hero-sub">Here's a quick look at your account.</div>
+        </div>
+        <div class="dash-hero-actions">
+          <button type="button" class="dash-act primary" onclick="showCollectionPage()">Continue Shopping</button>
+        </div>
+      </div>
+      <div class="acct-stats-row">
+        <div class="acct-stat-card" onclick="showAcctSection('orders')" style="--stat-c1:rgba(179,168,224,.3);--stat-c2:rgba(179,168,224,.08);--stat-ic:#b3a8e0">
+          <div class="acct-stat-top">
+            <div class="acct-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a2 2 0 0 1 2 2v16l-5-3-5 3V5a2 2 0 0 1 2-2Z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+            <svg class="acct-stat-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="acct-stat-value" id="acctDashOrderCount">0</div>
+          <div class="acct-stat-label">Orders</div>
+        </div>
+        <div class="acct-stat-card" onclick="showAcctSection('points')" style="--stat-c1:rgba(232,200,122,.32);--stat-c2:rgba(232,200,122,.08);--stat-ic:#e8c87a">
+          <div class="acct-stat-top">
+            <div class="acct-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <svg class="acct-stat-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="acct-stat-value" id="acctDashPointsCount">0</div>
+          <div class="acct-stat-label">Essentra Points</div>
+        </div>
+        <div class="acct-stat-card" onclick="showAcctSection('wishlist')" style="--stat-c1:rgba(224,120,140,.3);--stat-c2:rgba(224,120,140,.08);--stat-ic:#e0788c">
+          <div class="acct-stat-top">
+            <div class="acct-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
+            <svg class="acct-stat-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="acct-stat-value" id="acctDashWishCount">0</div>
+          <div class="acct-stat-label">Wish List</div>
+        </div>
+        <div class="acct-stat-card" onclick="showAcctSection('addresses')" style="--stat-c1:rgba(139,201,139,.3);--stat-c2:rgba(139,201,139,.08);--stat-ic:#8bc98b">
+          <div class="acct-stat-top">
+            <div class="acct-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13"/><path d="M3 21h18"/><path d="M9 21V8h6v13"/></svg></div>
+            <svg class="acct-stat-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </div>
+          <div class="acct-stat-value" id="acctDashAddrCount">0</div>
+          <div class="acct-stat-label">Addresses</div>
+        </div>
+      </div>
+
+      <div class="acct-recent-card">
+        <div class="acct-recent-head">
+          <div>
+            <div class="dash-card-title">Recent Orders</div>
+            <div class="dash-card-sub">Your latest purchases</div>
+          </div>
+          <button type="button" class="dash-act" onclick="showAcctSection('orders')">View all</button>
+        </div>
+        <div id="acctRecentOrders"></div>
+      </div>
+    </div>
+
+    <!-- EDIT PROFILE -->
+    <div id="acctView_profile" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Edit <em>Profile</em></div>
+            <div class="admin-page-head-sub">Update your personal details and profile photo.</div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-head">
+          <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="m21 16-5-5-4 4-3-3-5 5"/></svg></div>
+          <div class="admin-card-titles">
+            <div class="admin-card-title">Profile Photo</div>
+            <div class="admin-card-sub">A clear photo helps personalize your account.</div>
+          </div>
+        </div>
+        <div class="avatar-upload-wrap">
+          <div class="avatar-upload-circle" id="profileAvatarCircle" onclick="document.getElementById('profileAvatarInput').click()">—<div class="avatar-upload-edit">Change</div></div>
+          <input aria-label="Upload profile photo" name="profileAvatarInput" type="file" id="profileAvatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)"/>
+          <div class="avatar-upload-actions">
+            <div style="font-size:.72rem;color:var(--muted)">Click the circle to upload a new photo.</div>
+            <button class="avatar-remove-btn" onclick="removeAvatar()">Remove Photo</button>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card" style="margin-bottom:0">
+        <div class="admin-card-head">
+          <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div class="admin-card-titles">
+            <div class="admin-card-title">Basic Information</div>
+            <div class="admin-card-sub">Your name, username, and contact details.</div>
+          </div>
+        </div>
+        <div class="admin-2col">
+          <div class="form-group"><label class="form-label" for="prof-name">Full Name</label><input autocomplete="name" name="prof-name" class="form-input" id="prof-name" placeholder="Your full name"/></div>
+          <div class="form-group"><label class="form-label" for="prof-username">Username</label><input autocomplete="username" name="prof-username" class="form-input" id="prof-username" placeholder="e.g. jane_doe"/></div>
+        </div>
+        <div class="admin-2col">
+          <div class="form-group"><label class="form-label" for="prof-email">Email</label><input autocomplete="email" name="prof-email" class="form-input" id="prof-email" placeholder="you@email.com" disabled style="opacity:.6"/></div>
+          <div class="form-group"><label class="form-label" for="prof-phone">Phone</label><input autocomplete="tel" inputmode="tel" name="prof-phone" class="form-input" id="prof-phone" placeholder="01X-XXXXXXXX"/></div>
+        </div>
+        <div class="auth-error" id="profileError">Please check your details.</div>
+        <button class="submit-product-btn" onclick="saveProfile()">Save Changes</button>
+      </div>
+    </div>
+
+    <!-- CHANGE PASSWORD -->
+    <div id="acctView_password" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Change <em>Password</em></div>
+            <div class="admin-page-head-sub">Keep your account secure with a strong password.</div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card" style="margin-bottom:0">
+        <div class="admin-card-head">
+          <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div class="admin-card-titles">
+            <div class="admin-card-title">Update Password</div>
+            <div class="admin-card-sub">Use at least 6 characters, ideally a mix of letters and numbers.</div>
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label" for="pw-current">Current Password</label><div class="pw-wrap"><input autocomplete="current-password" name="pw-current" class="form-input" type="password" id="pw-current" placeholder="Current password"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'pw-current')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+        <div class="form-group"><label class="form-label" for="pw-new">New Password</label><div class="pw-wrap"><input autocomplete="new-password" name="pw-new" class="form-input" type="password" id="pw-new" placeholder="Min. 6 characters"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'pw-new')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+        <div class="form-group"><label class="form-label" for="pw-confirm">Confirm New Password</label><div class="pw-wrap"><input autocomplete="new-password" name="pw-confirm" class="form-input" type="password" id="pw-confirm" placeholder="Re-enter new password" onkeydown="if(event.key==='Enter')changePassword()"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'pw-confirm')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+        <div class="auth-error" id="passwordError">Please check your details.</div>
+        <button class="submit-product-btn" onclick="changePassword()">Update Password</button>
+      </div>
+    </div>
+
+    <!-- ORDERS -->
+    <div id="acctView_orders" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a2 2 0 0 1 2 2v16l-5-3-5 3V5a2 2 0 0 1 2-2Z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Order <em>History</em></div>
+            <div class="admin-page-head-sub">Track and review everything you've ordered.</div>
+          </div>
+        </div>
+      </div>
+      <div id="myOrdersContainer"></div>
+      <div class="myorder-empty" id="myOrdersEmpty" style="display:none">You haven't placed any orders yet. <a href="/collection" onclick="showCollectionPage();return false;" style="color:var(--gold);text-decoration:none">Browse the collection</a> to get started.</div>
+    </div>
+
+    <!-- TRACK ORDER -->
+    <div id="acctView_track" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Track <em>Order</em></div>
+            <div class="admin-page-head-sub">See exactly where your order is. This page updates by itself.</div>
+          </div>
+        </div>
+      </div>
+      <div class="trk-search">
+        <input class="form-input" id="trkAcctInput" autocomplete="off" inputmode="text" placeholder="Search by Order ID (optional)" onkeydown="if(event.key==='Enter')renderTrackSection()"/>
+        <button type="button" class="btn-primary trk-go" onclick="renderTrackSection()">Track</button>
+      </div>
+      <div id="trkAcctResult"></div>
+    </div>
+
+    <!-- ORDER INFORMATION (DETAIL) -->
+    <div id="acctView_orderDetail" style="display:none">
+      <div class="order-detail-breadcrumb">
+        <a href="/" onclick="showHomePage();return false;">Home</a>
+        <span class="sep">/</span>
+        <a href="/account/dashboard" onclick="showAcctSection('dashboard');return false;">Account</a>
+        <span class="sep">/</span>
+        <a href="/account/orders" onclick="showAcctSection('orders');return false;">Order History</a>
+        <span class="sep">/</span>
+        <span class="current">Order Information</span>
+      </div>
+      <div class="order-detail-head">
+        <h2>Order Information <em style="font-style:italic;color:var(--champagne)" id="odIdHeading"></em></h2>
+        <span class="order-status" id="odStatusPill"></span>
+      </div>
+      <div id="odTracker"></div>
+      <div class="order-detail-grid">
+        <div>
+          <div class="order-detail-card">
+            <div class="order-detail-info-grid">
+              <div>
+                <div class="order-detail-subhead">Shipping Address</div>
+                <div class="order-detail-address" id="odAddress"></div>
+              </div>
+              <div>
+                <div class="order-detail-subhead">Order Summary</div>
+                <div id="odSummary"></div>
+              </div>
+            </div>
+            <div class="order-detail-subhead" style="margin-top:2rem">Products</div>
+            <table class="order-detail-products-table">
+              <thead><tr><th>Product</th><th>Qty</th><th>Total</th></tr></thead>
+              <tbody id="odProductsBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="order-history-timeline">
+          <h3>Order History</h3>
+          <div class="timeline-list" id="odTimeline"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDRESSES -->
+    <div id="acctView_addresses" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13"/><path d="M3 21h18"/><path d="M9 21V8h6v13"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Saved <em>Addresses</em></div>
+            <div class="admin-page-head-sub">Manage the delivery addresses on your account.</div>
+          </div>
+        </div>
+        <button class="addr-add-btn" style="margin:0" onclick="openAddressForm()">+ Add New Address</button>
+      </div>
+      <div id="addrFormWrap" style="display:none" class="admin-card">
+        <div class="admin-card-head">
+          <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21V8a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13"/><path d="M3 21h18"/><path d="M9 21V8h6v13"/></svg></div>
+          <div class="admin-card-titles">
+            <div class="admin-card-title">Address Details</div>
+            <div class="admin-card-sub">Fill in where you'd like your orders delivered.</div>
+          </div>
+        </div>
+        <input name="addr-edit-id" type="hidden" id="addr-edit-id"/>
+        <div class="form-group"><label class="form-label" for="addr-label">Label</label><input autocomplete="off" name="addr-label" class="form-input" id="addr-label" placeholder="e.g. Home, Office"/></div>
+        <div class="admin-2col">
+          <div class="form-group"><label class="form-label" for="addr-name">Recipient Name</label><input autocomplete="name" name="addr-name" class="form-input" id="addr-name" placeholder="Full name"/></div>
+          <div class="form-group"><label class="form-label" for="addr-phone">Phone</label><input autocomplete="tel" inputmode="tel" name="addr-phone" class="form-input" id="addr-phone" placeholder="01X-XXXXXXXX"/></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="addr-address">Address</label><textarea autocomplete="street-address" name="addr-address" class="form-input form-textarea" id="addr-address" placeholder="House, Road, Area..." style="min-height:70px"></textarea></div>
+        <div class="form-group"><label class="form-label" for="addr-city">City / District</label><input autocomplete="address-level2" name="addr-city" class="form-input" id="addr-city" placeholder="e.g. Dhaka"/></div>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:var(--muted);margin-bottom:1rem;cursor:pointer"><input name="addr-default" type="checkbox" id="addr-default"/> Set as default address</label>
+        <div class="auth-error" id="addressError">Please check your details.</div>
+        <div style="display:flex;gap:.7rem">
+          <button class="submit-product-btn" style="margin-top:0" onclick="saveAddress()">Save Address</button>
+          <button class="status-btn" style="padding:.7rem 1.2rem" onclick="closeAddressForm()">Cancel</button>
+        </div>
+      </div>
+      <div id="addrListContainer"></div>
+      <div class="addr-empty" id="addrEmpty" style="display:none">No saved addresses yet. Add one to speed up checkout.</div>
+    </div>
+
+    <!-- ESSENTRA POINTS -->
+    <div id="acctView_points" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Essentra <em>Points</em></div>
+            <div class="admin-page-head-sub">Your loyalty balance and how you've earned it.</div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-card" style="text-align:center;padding:2.6rem 1.5rem;background:linear-gradient(160deg,rgba(201,168,130,.1),var(--dark3) 60%)">
+        <div style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Available Balance</div>
+        <div id="pointsBalanceDisplay" style="font-family:'Cormorant Garant',serif;font-size:2.6rem;color:var(--champagne)">0 PTS</div>
+        <div style="font-size:.74rem;color:var(--muted);margin-top:.5rem">≈ ৳<span id="pointsBalanceValue">0</span> in discounts</div>
+      </div>
+      <div class="points-rule-box" id="pointsRuleBox">Earn 1 point for every ৳100 spent on orders above ৳500. 1 point = ৳1 — redeem your points as a discount at checkout.</div>
+      <div class="admin-card" style="margin-top:1.5rem;margin-bottom:0">
+        <div class="admin-card-head">
+          <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <div class="admin-card-titles">
+            <div class="admin-card-title">Points History</div>
+            <div class="admin-card-sub">A record of every point you've earned or redeemed.</div>
+          </div>
+        </div>
+        <div id="pointsHistoryContainer"></div>
+        <div class="points-history-empty" id="pointsHistoryEmpty" style="display:none">No points activity yet. Place an order above ৳500 to start earning.</div>
+      </div>
+    </div>
+
+    <!-- WISHLIST -->
+    <div id="acctView_wishlist" style="display:none">
+      <button class="acct-back-link" onclick="showAcctSection('dashboard')">← Back to Account</button>
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">My <em>Wish List</em></div>
+            <div class="admin-page-head-sub">Fragrances you've saved to shop later.</div>
+          </div>
+        </div>
+      </div>
+      <div class="product-grid" id="wishlistGrid"></div>
+      <div class="wishlist-empty" id="wishlistEmpty" style="display:none">Your wish list is empty. <a href="/collection" onclick="showCollectionPage();return false;" style="color:var(--gold);text-decoration:none">Browse the collection</a> and tap the heart icon to save fragrances you love.</div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIND YOUR SCENT PAGE -->
+<div id="scentFinderPage" style="display:none">
+  <div style="max-width:900px;margin:0 auto;padding:9.5rem 1.5rem 5rem">
+    <div style="background:var(--dark2);border:1px solid rgba(201,168,130,.16);border-radius:14px;padding:3rem 2.5rem">
+      <h2 style="font-family:'Cormorant Garant',serif;font-weight:300;font-size:2.1rem;text-align:center;margin-bottom:2.2rem">Select Your <em style="font-style:italic;color:var(--gold)">Preferences</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem" class="scent-finder-grid">
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfGender">Gender *</label>
+          <select name="sfGender" class="form-select" id="sfGender" style="margin-top:.5rem">
+            <option value="">Select Gender</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Unisex">Unisex</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfSeason">Season *</label>
+          <select name="sfSeason" class="form-select" id="sfSeason" style="margin-top:.5rem">
+            <option value="">Select Season</option>
+            <option value="Summer">Summer</option>
+            <option value="Winter">Winter</option>
+            <option value="Autumn">Autumn</option>
+            <option value="Spring">Spring</option>
+            <option value="All Seasons">All Seasons</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfOccasion">Occasion *</label>
+          <select name="sfOccasion" class="form-select" id="sfOccasion" style="margin-top:.5rem">
+            <option value="">Select Occasion</option>
+            <option value="Daily Wear">Daily Wear</option>
+            <option value="Office">Office</option>
+            <option value="Date Night">Date Night</option>
+            <option value="Party">Party</option>
+            <option value="Special Event">Special Event</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfScent">Scent Family *</label>
+          <select name="sfScent" class="form-select" id="sfScent" style="margin-top:.5rem">
+            <option value="">Select Scent</option>
+            <option value="Woody">Woody</option>
+            <option value="Floral">Floral</option>
+            <option value="Fresh">Fresh</option>
+            <option value="Oriental">Oriental</option>
+            <option value="Citrus">Citrus</option>
+            <option value="Aquatic">Aquatic</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfLongevity">Longevity</label>
+          <select name="sfLongevity" class="form-select" id="sfLongevity" style="margin-top:.5rem">
+            <option value="">Any</option>
+            <option value="Light (1-3 hrs)">Light (1–3 hrs)</option>
+            <option value="Moderate (4-6 hrs)">Moderate (4–6 hrs)</option>
+            <option value="Long-lasting (7+ hrs)">Long-lasting (7+ hrs)</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" style="color:var(--gold);letter-spacing:.12em;font-size:.72rem;text-transform:uppercase" for="sfBudget">Budget</label>
+          <select name="sfBudget" class="form-select" id="sfBudget" style="margin-top:.5rem">
+            <option value="0">Any</option>
+            <option value="2000">Under ৳2,000</option>
+            <option value="3000">Under ৳3,000</option>
+            <option value="5000">Under ৳5,000</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2.4rem;flex-wrap:wrap">
+        <button class="btn-primary" style="border-radius:999px" onclick="findMyFragrance()">🔍 Find My Fragrance</button>
+        <button class="btn-ghost" style="border-radius:999px" onclick="resetScentFinder()">↻ Reset</button>
+      </div>
+    </div>
+    <div id="scentFinderResults" style="margin-top:3rem"></div>
+  </div>
+</div>
+
+<!-- POLICY PAGES -->
+<div id="policyPage_privacy" style="display:none">
+  <div class="policy-page-wrap">
+    <div class="section-label">Legal</div>
+    <h2>Privacy <em>Policy</em></h2>
+    <p>We respect your privacy. This page explains what information we collect when you use our store, how we use it, and the choices you have.</p>
+    <h3>Information We Collect</h3>
+    <p>When you browse our site or place an order, we may collect details such as your name, phone number, email address, delivery address, and order history. This information is used only to process and deliver your orders and to provide customer support.</p>
+    <h3>How We Use Your Information</h3>
+    <p>Your information helps us confirm orders, arrange delivery, respond to your messages, and improve our products and services. We do not sell your personal information to third parties.</p>
+    <h3>Data Storage</h3>
+    <p>Order and account details are stored securely and are only accessible to store administrators for the purpose of fulfilling your orders.</p>
+    <h3>Contact Us</h3>
+    <p>If you have any questions about this Privacy Policy, please reach out using the contact details on our <a href="/#contact" onclick="openContactOverlay();return false;" style="color:var(--gold);text-decoration:none">Contact page</a>.</p>
+    <a class="policy-back-link" href="/" onclick="showHomePage();return false;">← Back to Home</a>
+  </div>
+</div>
+
+<div id="policyPage_terms" style="display:none">
+  <div class="policy-page-wrap">
+    <div class="section-label">Legal</div>
+    <h2>Terms <em>&amp; Conditions</em></h2>
+    <p>By using our website and placing an order, you agree to the following terms and conditions.</p>
+    <h3>Orders</h3>
+    <p>All orders are subject to availability and confirmation. We reserve the right to refuse or cancel any order at our discretion, including in cases of suspected fraud or pricing errors.</p>
+    <h3>Pricing & Payment</h3>
+    <p>Prices are listed in BDT and may change without prior notice. Payment must be completed through one of our accepted payment methods before an order is processed, unless Cash on Delivery is selected.</p>
+    <h3>Product Information</h3>
+    <p>We strive to display accurate descriptions and images of our products. Minor variations in scent, color, or packaging may occur and do not constitute a defect.</p>
+    <h3>Limitation of Liability</h3>
+    <p>We are not liable for any indirect or incidental damages arising from the use of our products or website.</p>
+    <a class="policy-back-link" href="/" onclick="showHomePage();return false;">← Back to Home</a>
+  </div>
+</div>
+
+<div id="policyPage_return" style="display:none">
+  <div class="policy-page-wrap">
+    <div class="section-label">Legal</div>
+    <h2>Return <em>Policy</em></h2>
+    <p>Your satisfaction matters to us. Please review our return conditions below.</p>
+    <h3>Eligibility</h3>
+    <p>Due to the nature of fragrance products, we can only accept returns for items that are unopened, unused, and in their original packaging, reported within a reasonable time of delivery.</p>
+    <h3>Damaged or Incorrect Items</h3>
+    <p>If you receive a damaged, defective, or incorrect item, please contact us with photos of the product as soon as possible so we can arrange a replacement or refund.</p>
+    <h3>How to Request a Return</h3>
+    <p>Reach out to us through the contact details on our <a href="/#contact" onclick="openContactOverlay();return false;" style="color:var(--gold);text-decoration:none">Contact page</a> with your order number and reason for return.</p>
+    <a class="policy-back-link" href="/" onclick="showHomePage();return false;">← Back to Home</a>
+  </div>
+</div>
+
+<div id="policyPage_shipping" style="display:none">
+  <div class="policy-page-wrap">
+    <div class="section-label">Legal</div>
+    <h2>Shipping <em>Policy</em></h2>
+    <p>We aim to get your fragrances to you as quickly and safely as possible.</p>
+    <h3>Delivery Areas</h3>
+    <p>We currently deliver nationwide. Delivery charges and estimated delivery times may vary depending on your location, and are shown at checkout.</p>
+    <h3>Processing Time</h3>
+    <p>Orders are typically processed and confirmed within 24 hours of being placed. You will be contacted by phone or WhatsApp to confirm delivery details where needed.</p>
+    <h3>Delivery Charges</h3>
+    <p>Delivery charges are calculated at checkout and may be waived automatically for orders above a certain amount, as configured by the store.</p>
+    <a class="policy-back-link" href="/" onclick="showHomePage();return false;">← Back to Home</a>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" style="background:var(--dark2);display:none">
+  <div class="admin-wrap">
+    <div class="adm-topbar">
+      <div class="adm-brand">
+        <div class="adm-brand-mark"><img src="images/logo-mark.webp" alt="Essentra" width="64" height="64" loading="lazy"/></div>
+        <div>
+          <div class="adm-brand-name">Essentra</div>
+          <div class="adm-brand-sub">Admin Console</div>
+        </div>
+      </div>
+      <div class="adm-user">
+        <div class="adm-avatar" id="admin-avatar-view">—</div>
+        <div class="adm-user-info">
+          <div class="adm-user-name" id="admin-name-view">—</div>
+          <div class="adm-user-role"><span id="admin-username-view"></span> · <span id="admin-email-view">—</span></div>
+        </div>
+        <button class="adm-logout" onclick="doLogout()" title="Log out">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Log out</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="admin-layout">
+    <aside class="admin-sidebar">
+    <div class="tabs">
+      <div class="nav-group">Overview</div>
+      <button class="tab-btn active" data-tab="dashboard" onclick="switchTab('dashboard',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</button>
+      <div class="nav-group">Catalogue &amp; Sales</div>
+      <button class="tab-btn" data-tab="customers" onclick="switchTab('customers',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 3-5.8 6.5-5.8s6.5 2.2 6.5 5.8"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.4c2.7.3 5 2.3 5 5.6"/></svg>Customers</button>
+      <button class="tab-btn" data-tab="addProduct" onclick="goToAddProduct(this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Add Product</button>
+      <button class="tab-btn" data-tab="manageProducts" onclick="switchTab('manageProducts',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>Manage Products</button>
+      <button class="tab-btn" data-tab="inventory" onclick="switchTab('inventory',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M5 7v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7M9 11h6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Inventory</button>
+      <button class="tab-btn" data-tab="orders" onclick="switchTab('orders',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>Orders <span id="orderBadge" style="background:var(--gold);color:var(--obsidian);font-size:.6rem;padding:.1rem .4rem;margin-left:.3rem;vertical-align:middle"></span></button>
+      <button class="tab-btn" data-tab="reviews" onclick="switchTab('reviews',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg>Reviews <span id="reviewBadge" style="background:var(--gold);color:var(--obsidian);font-size:.6rem;padding:.1rem .4rem;margin-left:.3rem;vertical-align:middle;display:none"></span></button>
+      <button class="tab-btn" data-tab="atomizers" onclick="switchTab('atomizers',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M10 6v3M14 6v3"/><rect x="7" y="9" width="10" height="13" rx="2.5"/></svg>Atomizers</button>
+      <div class="nav-group">Marketing</div>
+      
+      <button class="tab-btn" data-tab="coupons" onclick="switchTab('coupons',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V9a2 2 0 0 0 0-4V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1a2 2 0 0 0 0 4Z"/></svg>Coupons</button>
+      <button class="tab-btn" data-tab="popups" onclick="switchTab('popups',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v0M14.5 9.5l-5 5M9.5 9.5h.01M14.5 14.5h.01"/></svg>Popups</button>
+      <button class="tab-btn" data-tab="points" onclick="switchTab('points',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg>Essentra Points</button>
+      <div class="nav-group">Configuration</div>
+      <button class="tab-btn" data-tab="payment" onclick="switchTab('payment',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Payment</button>
+      <button class="tab-btn" data-tab="topBanner" onclick="switchTab('topBanner',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>Top Banner</button>
+      <button class="tab-btn" data-tab="delivery" onclick="switchTab('delivery',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg>Delivery &amp; Pricing</button>
+      <button class="tab-btn" data-tab="adminLogin" onclick="switchTab('adminLogin',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>Admin Login</button>
+      <button class="tab-btn" data-tab="settings" onclick="switchTab('settings',this)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1.08 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1.08H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1.08-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1.08H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg>Settings</button>
+    </div>
+    </aside>
+    <div class="admin-main">
+
+    <!-- DASHBOARD -->
+    <div class="tab-content active" id="tab-dashboard">
+      <div class="dash-hero">
+        <div>
+          <div class="dash-hero-title" id="dashHeroTitle">Dashboard</div>
+          <div class="dash-hero-sub" id="dashHeroSub"></div>
+        </div>
+        <div class="dash-hero-actions">
+          <button type="button" class="dash-act" onclick="switchTab('orders')">View Orders</button>
+          <button type="button" class="dash-act primary" onclick="goToAddProduct(document.querySelector('.tab-btn[data-tab=addProduct]'))">+ Add Product</button>
+        </div>
+      </div>
+      <div id="dashStatsGrid" class="dash-stats-grid"></div>
+
+      <div class="dash-row dash-row-split">
+        <div class="dash-card">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title">Monthly Sales</div>
+              <div class="dash-card-sub">Last 12 months — click a month to see its details</div>
+            </div>
+          </div>
+          <div id="dashBarChart"></div>
+        </div>
+        <div class="dash-card dash-target-card">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title">Monthly Target</div>
+              <div class="dash-card-sub">Target you've set for this month</div>
+            </div>
+            <button type="button" onclick="editMonthlyTarget()" style="flex-shrink:0;background:rgba(201,168,130,.1);border:1px solid rgba(201,168,130,.28);color:var(--gold);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.42rem .85rem;border-radius:999px;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif">Set Target</button>
+          </div>
+          <div id="dashTargetGauge"></div>
+          <div id="dashTargetFooter"></div>
+        </div>
+      </div>
+
+      <div class="dash-row dash-row-split">
+        <div class="dash-card">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title">Revenue Movement</div>
+              <div class="dash-card-sub">Daily income across the last 14 days</div>
+            </div>
+          </div>
+          <div id="dashAreaChart"></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-head">
+            <div>
+              <div class="dash-card-title">Order Status</div>
+              <div class="dash-card-sub">Breakdown of every order on the books</div>
+            </div>
+          </div>
+          <div id="dashDonutChart"></div>
+        </div>
+      </div>
+
+      <div class="dash-row dash-row-split">
+        <div class="dash-card" style="padding:0">
+          <div class="dash-card-head" style="padding:1.5rem 1.6rem 1.1rem">
+            <div>
+              <div class="dash-card-title">Recent Orders</div>
+              <div class="dash-card-sub">Latest activity on your storefront</div>
+            </div>
+          </div>
+          <div id="dashRecentOrders"></div>
+        </div>
+        <div class="dash-card" style="padding:0">
+          <div class="dash-card-head" style="padding:1.5rem 1.6rem 1.1rem">
+            <div>
+              <div class="dash-card-title">New Customers</div>
+              <div class="dash-card-sub">Recently registered accounts</div>
+            </div>
+          </div>
+          <div id="dashRecentCustomers"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOMERS -->
+    <div class="tab-content" id="tab-customers">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 3-5.8 6.5-5.8s6.5 2.2 6.5 5.8"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M16 14.4c2.7.3 5 2.3 5 5.6"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Registered <em>Customers</em></div>
+            <div class="admin-page-head-sub">Everyone who has created an account on your store.</div>
+          </div>
+        </div>
+      </div>
+      <div id="customersGrid" style="background:var(--dark3);border:1px solid rgba(201,168,130,.1)"></div>
+      <div id="customersEmpty" style="display:none;text-align:center;padding:4rem;color:var(--muted);font-size:.83rem">No registered customers yet.</div>
+    </div>
+
+    <!-- INVENTORY -->
+    <div class="tab-content" id="tab-inventory">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M5 7v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7M9 11h6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Stock <em>Inventory</em></div>
+            <div class="admin-page-head-sub">Track stock levels across every fragrance and size.</div>
+          </div>
+        </div>
+      </div>
+      <div class="inv2-shell">
+        <div class="inv2-stats" id="inventoryStats"></div>
+        <div class="inv2-toolbar">
+          <div class="inv2-search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+            <input autocomplete="off" aria-label="Search products or brand…" name="invSearchInput" type="text" id="invSearchInput" placeholder="Search products or brand…" oninput="renderInventory()"/>
+          </div>
+          <div class="inv2-filters" id="inventoryFilterChips">
+            <button class="inv2-chip active" data-filter="all" onclick="setInvFilter('all',this)">All</button>
+            <button class="inv2-chip" data-filter="low" onclick="setInvFilter('low',this)">Low Stock</button>
+            <button class="inv2-chip" data-filter="out" onclick="setInvFilter('out',this)">Out of Stock</button>
+          </div>
+          <select aria-label="Sort inventory" name="invSortSelect" class="inv2-sort" id="invSortSelect" onchange="renderInventory()">
+            <option value="name">Sort: Name A–Z</option>
+            <option value="stockAsc">Sort: Stock Low → High</option>
+            <option value="stockDesc">Sort: Stock High → Low</option>
+          </select>
+        </div>
+        <div class="pm-count" id="inventoryCount"></div>
+        <div id="inventoryGrid" class="inv2-list"></div>
+        <div id="inventoryEmpty" style="display:none" class="admin-empty-state">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>
+          <div>No products in the catalogue yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD PRODUCT -->
+    <div class="tab-content" id="tab-addProduct">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon" id="addProductPageIcon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+          <div>
+            <div class="admin-page-head-title" id="addProductPageTitle">Add New <em>Fragrance</em></div>
+            <div class="admin-page-head-sub" id="addProductPageSub">Fill in the details below to list a new product in the catalogue.</div>
+          </div>
+        </div>
+        <span class="admin-page-head-badge" id="addProductPageBadge" style="display:none">Editing</span>
+      </div>
+      <div class="pf-tabs" id="pfTabs">
+        <button type="button" class="pf-tab active" data-pf="basic" onclick="pfShowSection('basic')"><b>1</b> Basics</button>
+        <button type="button" class="pf-tab" data-pf="notes" onclick="pfShowSection('notes')"><b>2</b> Description &amp; Notes</button>
+        <button type="button" class="pf-tab" data-pf="pricing" onclick="pfShowSection('pricing')"><b>3</b> Sizes &amp; Stock</button>
+      </div>
+      <div class="admin-form-wrap">
+        <div>
+          <div class="admin-card pf-section active" data-pf="basic">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24L4 3a1 1 0 0 0-1 1l.24 5.59a2 2 0 0 0 .59 1.41l9.58 9.59a2 2 0 0 0 2.83 0l6.58-6.59a2 2 0 0 0 0-2.83Z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Basic Information</div>
+                <div class="admin-card-sub">Name, house and how it's categorised across the shop.</div>
+              </div>
+            </div>
+            <div class="admin-2col">
+              <div class="form-group"><label class="form-label" for="prodBrand">Brand / House</label><select name="prodBrand" class="form-select" id="prodBrand"></select></div>
+              <div class="form-group"><label class="form-label" for="prodName">Fragrance Name</label><input autocomplete="off" name="prodName" class="form-input" id="prodName" placeholder="e.g. Oud Noir, Rose Elixir"/></div>
+            </div>
+            <div class="admin-2col">
+              <div class="form-group"><label class="form-label">Batch <span class="pf-hint">(optional)</span></label><input autocomplete="off" aria-label="e.g. B-2025-01, Batch 3" name="prodBatch" class="form-input" id="prodBatch" placeholder="e.g. B-2025-01, Batch 3"/></div>
+              <div class="form-group"></div>
+            </div>
+            <div class="admin-2col">
+              <div class="form-group"><label class="form-label" for="prodType">Type</label>
+                <select name="prodType" class="form-select" id="prodType">
+                  <option value="edp">Eau de Parfum (EDP)</option>
+                  <option value="edt">Eau de Toilette (EDT)</option>
+                  <option value="parfum">Parfum / Extrait</option>
+                  <option value="edc">Eau de Cologne (EDC)</option>
+                </select>
+              </div>
+              <div class="form-group"><label class="form-label">Category <span class="pf-hint">(multi-select)</span></label>
+                <div class="season-multi" id="prodCategoryGroup">
+                  <label><input name="opt-men" type="checkbox" value="Men"/><span>Men</span></label>
+                  <label><input name="opt-women" type="checkbox" value="Women"/><span>Women</span></label>
+                  <label><input name="opt-unisex" type="checkbox" value="Unisex" checked/><span>Unisex</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label">Season <span class="pf-hint">(multi-select · none = all)</span></label>
+              <div class="season-multi" id="prodSeasonGroup">
+                <label><input name="opt-summer" type="checkbox" value="Summer"/><span>Summer</span></label>
+                <label><input name="opt-spring" type="checkbox" value="Spring"/><span>Spring</span></label>
+                <label><input name="opt-autumn" type="checkbox" value="Autumn"/><span>Autumn</span></label>
+                <label><input name="opt-winter" type="checkbox" value="Winter"/><span>Winter</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-card pf-section" data-pf="notes">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Description &amp; Notes</div>
+                <div class="admin-card-sub">What customers read on the product page.</div>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label" for="prodDesc">Description</label><textarea autocomplete="off" name="prodDesc" class="form-input form-textarea" id="prodDesc" placeholder="Scent profile, notes, mood..."></textarea></div>
+            <div class="pf-notes3">
+              <div class="form-group" style="margin-bottom:0"><label class="form-label" for="prodTopNotes">Top Notes (optional)</label><input autocomplete="off" name="prodTopNotes" class="form-input" id="prodTopNotes" placeholder="e.g. Bergamot, Lemon, Pink Pepper"/></div>
+              <div class="form-group" style="margin-bottom:0"><label class="form-label" for="prodMiddleNotes">Middle Notes (optional)</label><input autocomplete="off" name="prodMiddleNotes" class="form-input" id="prodMiddleNotes" placeholder="e.g. Rose, Jasmine, Cinnamon"/></div>
+              <div class="form-group" style="margin-bottom:0"><label class="form-label" for="prodBaseNotes">Base Notes (optional)</label><input autocomplete="off" name="prodBaseNotes" class="form-input" id="prodBaseNotes" placeholder="e.g. Oud, Musk, Vanilla"/></div>
+            </div>
+          </div>
+
+          <div class="admin-card pf-section" data-pf="pricing">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2a2.7 2.7 0 0 0-2.3-1.2c-1.5 0-2.7 1-2.7 2.3 0 3 5 1.7 5 4.6 0 1.3-1.2 2.3-2.7 2.3a2.7 2.7 0 0 1-2.4-1.3"/><path d="M12 6.5v11"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Size, Pricing &amp; Stock</div>
+                <div class="admin-card-sub">Each size has its own price and stock. Customers only ever see "In Stock" or "Out of Stock" — never the number — and it switches automatically at 0.</div>
+              </div>
+            </div>
+            <div class="size-table">
+              <div class="size-table-head">
+                <span>ML</span><span>Price ৳</span><span>Stock (units)</span><span></span>
+              </div>
+              <div id="sizePricingRows">
+                <div class="size-row"><input autocomplete="off" aria-label="ML" name="field-82635" class="form-input" placeholder="ML" style="max-width:80px"/><input autocomplete="off" aria-label="Price ৳" name="field-82702" class="form-input" placeholder="Price ৳"/><input aria-label="Stock" name="field-82751" class="form-input" type="number" min="0" step="1" placeholder="Stock" style="max-width:100px"/><button class="remove-size-btn" onclick="removeSizeRow(this)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+              </div>
+            </div>
+            <div class="form-group" style="margin:1.1rem 0 .4rem"><label class="form-label" for="prodDiscount">Discount (%) — optional, applies to every size of this product (empty or 0 = no discount)</label><input autocomplete="off" name="prodDiscount" class="form-input" id="prodDiscount" type="number" min="0" max="100" step="any" placeholder="e.g. 15" style="max-width:200px"/></div>
+            <button class="add-size-btn" onclick="addSizeRow()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add Another Size</button>
+          </div>
+
+          <div class="admin-actions-bar">
+            <button type="button" class="pf-nav-btn" id="pfPrevBtn" onclick="pfStep(-1)" style="visibility:hidden">← Back</button>
+            <button type="button" class="pf-nav-btn" id="pfNextBtn" onclick="pfStep(1)">Next →</button>
+            <button class="submit-product-btn" id="productSubmitBtn" onclick="submitProduct()">Add to Collection</button>
+            <button class="submit-product-btn" id="cancelEditBtn" onclick="cancelEdit()" style="display:none;background:transparent;border:1px solid rgba(201,168,130,.25);color:var(--muted)">Cancel Edit</button>
+          </div>
+        </div>
+
+        <div class="pf-side">
+          <div class="admin-card" style="margin-bottom:0">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="m21 16-5-5-4 4-3-3-5 5"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Product Photo</div>
+                <div class="admin-card-sub">One clean image customers will see first.</div>
+              </div>
+            </div>
+            <div class="photo-drop">
+              <label class="photo-upload" id="photoZone">
+                <input name="photoInput" type="file" id="photoInput" accept="image/*" style="display:none" onchange="handlePhoto(event)"/>
+                <div class="photo-upload-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 16 7a4.5 4.5 0 0 1 1 8.9"/><path d="M12 12v7"/><path d="m9 15 3-3 3 3"/></svg></div>
+                <div class="photo-upload-text"><strong>Click to upload product photo</strong>JPG, PNG, WEBP</div>
+              </label>
+              <div class="photo-preview-wrap" id="photoPreviewWrap">
+                <img id="photoPreview" alt="Product photo preview"/>
+                <div class="photo-preview-actions">
+                  <label class="photo-mini-btn" for="photoInput" style="cursor:pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>Change Photo</label>
+                  <button type="button" class="photo-mini-btn danger" onclick="removePhoto()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="admin-card" style="margin-bottom:0;margin-top:1.2rem">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Visibility</div>
+                <div class="admin-card-sub">Control where this fragrance appears on the site.</div>
+              </div>
+            </div>
+            <div class="switch-row">
+              <div>
+                <div class="switch-row-label">Mark as Best Seller</div>
+                <div class="switch-row-sub">Shows this product in the Homepage Best Sellers carousel</div>
+              </div>
+              <label class="switch">
+                <input name="prodBestseller" type="checkbox" id="prodBestseller"/>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- MANAGE PRODUCTS -->
+    <div class="tab-content" id="tab-manageProducts">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Manage <em>Products</em></div>
+            <div class="admin-page-head-sub">Edit, hide, or remove fragrances already in your catalogue.</div>
+          </div>
+        </div>
+      </div>
+      <div class="stat-pill-row" id="manageStats"></div>
+      <div class="pm-toolbar">
+        <div class="pm-count" id="manageCount"></div>
+        <button onclick="clearAllProducts()" style="background:transparent;border:1px solid rgba(180,80,80,.3);border-radius:8px;color:#c97070;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.15rem;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s" onmouseover="this.style.background='rgba(201,112,112,.08)'" onmouseout="this.style.background='transparent'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>Clear All Products</button>
+      </div>
+      <div id="manageGrid" class="pm-grid"></div>
+      <div id="manageEmpty" style="display:none" class="admin-empty-state">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>
+        <div>No products yet.</div>
+      </div>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="tab-content" id="tab-orders">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Customer <em>Orders</em></div>
+            <div class="admin-page-head-sub">Review, fulfil, and track every order placed on your store.</div>
+          </div>
+        </div>
+      </div>
+      <div id="ordersContainer"></div>
+      <div id="ordersEmpty" style="display:none;text-align:center;padding:4rem;color:var(--muted);font-size:.83rem">No orders received yet.</div>
+    </div>
+
+    <!-- COUPONS & POINTS -->
+    <div class="tab-content" id="tab-reviews">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Customer <em>Reviews</em></div>
+            <div class="admin-page-head-sub">Approve a review to show it on the homepage. Rejected reviews stay hidden.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:820px">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem">
+          <button class="filter-btn" id="rvf-pending" onclick="setReviewFilter('pending')">Pending</button>
+          <button class="filter-btn" id="rvf-approved" onclick="setReviewFilter('approved')">Approved</button>
+          <button class="filter-btn" id="rvf-rejected" onclick="setReviewFilter('rejected')">Rejected</button>
+          <button class="filter-btn" id="rvf-all" onclick="setReviewFilter('all')">All</button>
+        </div>
+        <div id="reviewsList"></div>
+      </div>
+    </div>
+
+    <!-- DISCOUNTS -->
+    <div class="tab-content" id="tab-atomizers">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M10 6v3M14 6v3"/><rect x="7" y="9" width="10" height="13" rx="2.5"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Premium <em>Atomizers</em></div>
+            <div class="admin-page-head-sub">Optional extras shown on a product when its size matches. Never discounted.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+          <div class="admin-card-head">
+            <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M10 6v3M14 6v3"/><rect x="7" y="9" width="10" height="13" rx="2.5"/></svg></div>
+            <div class="admin-card-titles">
+              <div class="admin-card-title">Extra Premium Atomizers</div>
+              <div class="admin-card-sub">A 5ml product shows the 5ml atomizer, a 10ml product shows the 10ml one. Customers must tick it themselves; site discount, coupons and points never apply to it.</div>
+            </div>
+          </div>
+          <div id="atomizerRows"></div>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem">
+            <button type="button" class="status-btn" onclick="addAtomizerRow()">+ Add Atomizer</button>
+          </div>
+        </div>
+        <button class="submit-product-btn" style="max-width:220px" onclick="saveAtomizers()">Save Atomizers</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-coupons">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V9a2 2 0 0 0 0-4V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1a2 2 0 0 0 0 4Z"/></svg></div>
+          <div>
+            <div class="admin-page-head-title"><em>Coupons</em></div>
+            <div class="admin-page-head-sub">Create and manage discount codes.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+          <div class="admin-card-head">
+            <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V9a2 2 0 0 0 0-4V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1a2 2 0 0 0 0 4Z"/></svg></div>
+            <div class="admin-card-titles">
+              <div class="admin-card-title">Create Coupon Code</div>
+              <div class="admin-card-sub">Set up a new discount code customers can apply at checkout.</div>
+            </div>
+          </div>
+          <div class="admin-2col">
+            <div class="form-group"><label class="form-label" for="cpn-code">Coupon Code</label><input autocomplete="off" name="cpn-code" class="form-input" id="cpn-code" placeholder="e.g. ESSENTRA" style="text-transform:uppercase"/></div>
+            <div class="form-group"><label class="form-label" for="cpn-type">Discount Type</label>
+              <select name="cpn-type" class="form-select" id="cpn-type">
+                <option value="fixed">Fixed Amount (৳)</option>
+                <option value="percent">Percentage (%)</option>
+              </select>
+            </div>
+          </div>
+          <div class="admin-2col">
+            <div class="form-group"><label class="form-label" for="cpn-value">Discount Value</label><input name="cpn-value" class="form-input" id="cpn-value" type="number" placeholder="e.g. 500"/></div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="cpn-min">Minimum Order Amount (৳, optional)</label><input name="cpn-min" class="form-input" id="cpn-min" type="number" placeholder="e.g. 1000"/></div>
+          </div>
+          <div class="admin-2col">
+            <div class="form-group"><label class="form-label" for="cpn-upto">Up To ৳ (max discount, admin only, optional)</label><input name="cpn-upto" class="form-input" id="cpn-upto" type="number" min="0" placeholder="e.g. 500"/></div>
+            <div class="form-group"><label class="form-label" for="cpn-limit">Usage Limit (total customers, 0 = unlimited)</label><input name="cpn-limit" class="form-input" id="cpn-limit" type="number" min="0" placeholder="e.g. 50"/></div>
+          </div>
+          <div class="admin-2col">
+            <div class="form-group"><label class="form-label" for="cpn-newonly">Who Can Use</label>
+              <select name="cpn-newonly" class="form-select" id="cpn-newonly">
+                <option value="0">Everyone</option>
+                <option value="1">New accounts only (first order)</option>
+              </select>
+            </div>
+          </div>
+          <button class="submit-product-btn" style="max-width:220px" onclick="addCoupon()">Create Coupon</button>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-head">
+            <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div class="admin-card-titles">
+              <div class="admin-card-title">Active Coupons</div>
+              <div class="admin-card-sub">Codes currently live and usable on your storefront.</div>
+            </div>
+          </div>
+          <div id="couponsListContainer"></div>
+          <div id="couponsEmpty" style="display:none;text-align:center;padding:3rem;color:var(--muted);font-size:.83rem">No coupons created yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-popups">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M14.5 9.5l-5 5M9.5 9.5h.01M14.5 14.5h.01"/></svg></div>
+          <div>
+            <div class="admin-page-head-title"><em>Popups</em></div>
+            <div class="admin-page-head-sub">Create offer popups that appear when visitors open your site.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:760px" id="popupsAdminRoot"></div>
+    </div>
+
+    <div class="tab-content" id="tab-points">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Essentra <em>Points</em></div>
+            <div class="admin-page-head-sub">Configure how customers earn and redeem loyalty points.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card" style="margin-bottom:0">
+          <div class="admin-card-head">
+            <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5 14.9 9l7 .6-5.3 4.6 1.6 6.9-6.2-3.7-6.2 3.7 1.6-6.9L2.1 9.6l7-.6Z"/></svg></div>
+            <div class="admin-card-titles">
+              <div class="admin-card-title">Essentra Points Settings</div>
+              <div class="admin-card-sub">Configure how customers earn and redeem loyalty points.</div>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label" for="set-pointsminspend">Minimum Order Spend to Earn Points (BDT)</label><input name="set-pointsminspend" class="form-input" id="set-pointsminspend" placeholder="e.g. 500" type="number"/></div>
+          <div class="form-group"><label class="form-label" for="set-pointsperamount">Spend Per Point Earned (BDT) — e.g. 100 means 1 point for every ৳100 spent</label><input name="set-pointsperamount" class="form-input" id="set-pointsperamount" placeholder="e.g. 100" type="number"/></div>
+          <div class="form-group" style="margin-bottom:0"><label class="form-label" for="set-pointsvalue">Discount Value Per Point (BDT) — e.g. 1 means 1 point = ৳1 off</label><input name="set-pointsvalue" class="form-input" id="set-pointsvalue" placeholder="e.g. 1" type="number" step="0.01"/></div>
+          <button class="submit-product-btn" style="max-width:220px" onclick="saveSettings()">Save Points Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-payment">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+          <div>
+            <div class="admin-page-head-title"><em>Payment</em> Options</div>
+            <div class="admin-page-head-sub">Where customers send Mobile Banking payments.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Payment Numbers</div>
+                <div class="admin-card-sub">Where customers send Mobile Banking payments.</div>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label" for="set-bkash">bKash Number</label><input autocomplete="off" name="set-bkash" class="form-input" id="set-bkash" placeholder="01X-XXX-XXXXX"/></div>
+            <div class="form-group"><label class="form-label" for="set-nagad">Nagad Number</label><input autocomplete="off" name="set-nagad" class="form-input" id="set-nagad" placeholder="01X-XXX-XXXXX"/></div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="set-rocket">Rocket Number</label><input autocomplete="off" name="set-rocket" class="form-input" id="set-rocket" placeholder="01X-XXX-XXXXX"/></div>
+          </div>
+        <button class="submit-product-btn" style="max-width:220px" onclick="saveSettings()">Save Payment Settings</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-topBanner">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Top <em>Banner</em></div>
+            <div class="admin-page-head-sub">Messages shown in the bar at the top of your store.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+          <div class="admin-card-head">
+            <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></div>
+            <div class="admin-card-titles">
+              <div class="admin-card-title">Banner Messages</div>
+              <div class="admin-card-sub">Shown one at a time. Choose how long each message stays before switching.</div>
+            </div>
+          </div>
+            <div class="form-group">
+              <label class="form-label" for="set-promoInterval">Switch Time (seconds per message)</label>
+              <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap">
+                <input name="set-promoInterval" class="form-input" type="number" id="set-promoInterval" min="1" max="60" step="0.5" value="2.5" style="max-width:140px"/>
+                <div id="promoIntervalPresets" style="display:flex;gap:.4rem;flex-wrap:wrap">
+                  <button type="button" class="btn-ghost" onclick="setPromoIntervalPreset(2)" style="font-size:.68rem;padding:.45rem .9rem">2s</button>
+                  <button type="button" class="btn-ghost" onclick="setPromoIntervalPreset(3)" style="font-size:.68rem;padding:.45rem .9rem">3s</button>
+                  <button type="button" class="btn-ghost" onclick="setPromoIntervalPreset(5)" style="font-size:.68rem;padding:.45rem .9rem">5s</button>
+                  <button type="button" class="btn-ghost" onclick="setPromoIntervalPreset(8)" style="font-size:.68rem;padding:.45rem .9rem">8s</button>
+                </div>
+              </div>
+              <div style="font-size:.68rem;opacity:.6;margin-top:.35rem">Allowed: 1 – 60 seconds. Only applies when there are 2 or more banner items.</div>
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Banner Items (leave empty for auto discount text)</label>
+              <div id="promoItemsList"></div>
+              <button type="button" class="btn-ghost" onclick="addPromoRow('')" style="margin-top:.4rem;font-size:.68rem;padding:.55rem 1.1rem">+ Add Item</button>
+            </div>
+        </div>
+        <button class="submit-product-btn" style="max-width:220px" onclick="saveSettings()">Save Banner Settings</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-delivery">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Delivery &amp; <em>Pricing</em></div>
+            <div class="admin-page-head-sub">Delivery charges and free-delivery rules.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Delivery &amp; Pricing</div>
+                <div class="admin-card-sub">Delivery charges and free-delivery rules.</div>
+              </div>
+            </div>
+            <div class="admin-2col">
+              <div class="form-group"><label class="form-label" for="set-deliveryInside">Delivery — Inside Dhaka (BDT)</label><input name="set-deliveryInside" class="form-input" id="set-deliveryInside" placeholder="e.g. 80" type="number"/></div>
+              <div class="form-group"><label class="form-label" for="set-deliveryOutside">Delivery — Outside Dhaka (BDT)</label><input name="set-deliveryOutside" class="form-input" id="set-deliveryOutside" placeholder="e.g. 140" type="number"/></div>
+            </div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="set-freeabove">Free Delivery Above (BDT, 0 = disabled)</label><input name="set-freeabove" class="form-input" id="set-freeabove" placeholder="e.g. 1000" type="number"/></div>
+          </div>
+        <button class="submit-product-btn" style="max-width:220px" onclick="saveSettings()">Save Delivery Settings</button>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-adminLogin">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Admin <em>Login</em></div>
+            <div class="admin-page-head-sub">Your credentials and profile for this panel.</div>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:720px">
+        <div class="admin-card">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Admin Login</div>
+                <div class="admin-card-sub">Your credentials and profile for this panel.</div>
+              </div>
+            </div>
+            <div class="switch-row" style="margin-bottom:1.1rem">
+              <div style="display:flex;align-items:center;gap:1rem">
+                <img id="adminAvatarPreview" alt="Admin profile photo preview" style="width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--dark3);display:none"/>
+                <div>
+                  <div class="switch-row-label">Profile Photo</div>
+                  <div class="switch-row-sub">Shown next to your name in the admin panel</div>
+                </div>
+              </div>
+              <label class="photo-mini-btn" style="flex:0 0 auto;cursor:pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 16 7a4.5 4.5 0 0 1 1 8.9"/><path d="M12 12v7"/><path d="m9 15 3-3 3 3"/></svg>Upload
+                <input name="adminAvatarInput" type="file" id="adminAvatarInput" accept="image/*" style="display:none" onchange="handleAdminAvatar(event)"/>
+              </label>
+            </div>
+            <div class="form-group"><label class="form-label" for="set-adminname">Admin Display Name</label><input autocomplete="name" name="set-adminname" class="form-input" id="set-adminname" placeholder="e.g. Anik Ahmed"/></div>
+            <div class="form-group"><label class="form-label" for="set-adminuser">Admin Username</label><input autocomplete="username" name="set-adminuser" class="form-input" id="set-adminuser" placeholder="e.g. admin"/></div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="set-newpass">New Password (min 6 chars)</label><div class="pw-wrap"><input autocomplete="new-password" name="set-newpass" class="form-input" id="set-newpass" type="password" placeholder="Leave blank to keep current"/><button type="button" class="pw-toggle" onclick="pwToggle(this,'set-newpass')" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+          </div>
+        <button class="submit-product-btn" style="max-width:220px" onclick="saveSettings()">Save Admin Login</button>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="tab-content" id="tab-settings">
+      <div class="admin-page-head">
+        <div class="admin-page-head-left">
+          <div class="admin-page-head-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1.08 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1.08H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1.08-1.51V3a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1.08H21a2 2 0 0 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg></div>
+          <div>
+            <div class="admin-page-head-title">Store <em>Settings</em></div>
+            <div class="admin-page-head-sub">Branding, admin login, payments, and delivery configuration.</div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-columns" style="grid-template-columns:1fr;max-width:720px">
+        <div>
+          <div class="admin-card">
+            <div class="admin-card-head">
+              <div class="admin-card-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg></div>
+              <div class="admin-card-titles">
+                <div class="admin-card-title">Site &amp; Contact</div>
+                <div class="admin-card-sub">Your brand identity and how customers reach you.</div>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label" for="set-sitename">Website / Brand Name</label><input autocomplete="off" name="set-sitename" class="form-input" id="set-sitename" placeholder="e.g. Essentra"/></div>
+            <div class="form-group"><label class="form-label" for="set-footerwordmark">Footer Big Text (the large wordmark at the bottom of the site)</label><input autocomplete="off" name="set-footerwordmark" class="form-input" id="set-footerwordmark" maxlength="40" placeholder="Leave empty to hide the big text"/></div>
+            <div class="form-group"><label class="form-label" for="set-email">Business Email</label><input autocomplete="email" name="set-email" class="form-input" id="set-email" placeholder="you@yourdomain.com"/></div>
+            <div class="form-group"><label class="form-label" for="set-phone">Business Phone Number (shown in footer, contact &amp; COD orders)</label><input autocomplete="tel" inputmode="tel" name="set-phone" class="form-input" id="set-phone" placeholder="01X-XXX-XXXXX"/></div>
+            <div class="form-group"><label class="form-label" for="set-address">Business Address / Location</label><input autocomplete="off" name="set-address" class="form-input" id="set-address" placeholder="e.g. Dhaka, Bangladesh"/></div>
+            <div class="form-group"><label class="form-label" for="set-facebook">Facebook Page URL</label><input autocomplete="off" name="set-facebook" class="form-input" id="set-facebook" placeholder="https://facebook.com/yourpage"/></div>
+            <div class="form-group"><label class="form-label" for="set-whatsapp">WhatsApp Number (with country code, no + or spaces)</label><input autocomplete="off" name="set-whatsapp" class="form-input" id="set-whatsapp" placeholder="e.g. 8801XXXXXXXXX"/></div>
+            <div class="form-group" style="margin-bottom:0"><label class="form-label" for="set-instagram">Instagram Profile URL</label><input autocomplete="off" name="set-instagram" class="form-input" id="set-instagram" placeholder="https://instagram.com/yourpage"/></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="admin-actions-bar">
+        <button class="submit-product-btn" onclick="saveSettings()">Save Settings</button>
+        <button onclick="doLogout()" style="background:transparent;border:1px solid rgba(201,168,130,.2);color:var(--muted);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;font-family:'Inter',sans-serif;border-radius:8px;white-space:nowrap;flex:0 0 auto">🔒 Lock Admin Panel</button>
+      </div>
+    </div>
+
+    </div><!-- /admin-main -->
+    </div><!-- /admin-layout -->
+  </div>
+</div>
+
+<!-- CONTACT OVERLAY (hidden until the contact icon in the nav is clicked) -->
+<div class="search-overlay" id="contactOverlay">
+  <button class="search-overlay-close" onclick="closeContactOverlay()" title="Close">✕</button>
+  <div id="contact" style="background:#f0ece3;border-radius:10px;padding:3.5rem 2rem;text-align:center;max-width:1000px;width:100%;max-height:85vh;overflow:auto">
+  <div style="max-width:1100px;margin:0 auto">
+    <h2 style="font-family:'Cormorant Garant',serif;font-weight:700;font-size:2.6rem;color:#1a1a1a;margin-bottom:3.5rem">Get in <span style="color:var(--gold)">Touch</span></h2>
+    <div class="contact-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+      <div style="background:#181818;padding:2.6rem 1.5rem;border-radius:6px">
+        <div style="font-size:1.6rem;color:var(--gold);margin-bottom:1.1rem">📍</div>
+        <div style="color:#fff;font-weight:700;font-size:1.15rem;margin-bottom:1rem;font-family:'Inter',sans-serif">Visit Us</div>
+        <div id="contact-address" style="color:#9a9a9a;font-size:.92rem">Set in Admin → Settings</div>
+      </div>
+      <div style="background:#181818;padding:2.6rem 1.5rem;border-radius:6px">
+        <div style="font-size:1.6rem;color:var(--gold);margin-bottom:1.1rem">📞</div>
+        <div style="color:#fff;font-weight:700;font-size:1.15rem;margin-bottom:1rem;font-family:'Inter',sans-serif">Call Us</div>
+        <div id="contact-phone" style="color:#9a9a9a;font-size:.92rem;margin-bottom:.3rem">Set in Admin → Settings</div>
+        <div style="color:#9a9a9a;font-size:.85rem">Sat – Thu: 10AM – 8PM</div>
+      </div>
+      <div style="background:#181818;padding:2.6rem 1.5rem;border-radius:6px">
+        <div style="font-size:1.6rem;color:var(--gold);margin-bottom:1.1rem">✉️</div>
+        <div style="color:#fff;font-weight:700;font-size:1.15rem;margin-bottom:1rem;font-family:'Inter',sans-serif">Email Us</div>
+        <div id="contact-email" style="color:#9a9a9a;font-size:.92rem;margin-bottom:.3rem">Set in Admin → Settings</div>
+        <div style="color:#9a9a9a;font-size:.85rem">Reply within 24 hours</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="ft-wordmark-wrap reveal"><div class="ft-wordmark" id="ftWordmark"><span id="footerSiteName">Essentra</span></div></div>
+
+  <div class="ft-main">
+    <div class="ft-card">
+      <div class="ft-card-title">Stay in the Loop</div>
+      <p class="ft-card-text">Be the first to know about new arrivals, exclusive offers, and fragrance stories from <span class="dynamicSiteName">Essentra</span>.</p>
+      <div class="footer-join-row">
+        <input autocomplete="email" aria-label="Enter your email" name="footerEmail" type="email" class="footer-join-input" id="footerEmail" placeholder="Enter your email"/>
+        <button class="footer-join-btn" onclick="joinNewsletter()">Subscribe <span>&rarr;</span></button>
+      </div>
+      <p class="ft-card-fine">By subscribing, you agree to our <a href="/policy/privacy" onclick="showPolicyPage('privacy');return false;">Privacy Policy</a>. Unsubscribe anytime.</p>
+      <div class="ft-card-member">
+        <div class="ft-card-member-q">Already a member?</div>
+        <a href="/account/dashboard" class="ft-card-login" onclick="handleAccountClick();return false;">Log in to your account <span>&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="ft-right">
+      <div class="ft-tagline-row">
+        <p class="ft-tagline">Authentic fragrances. By the ml. For you.</p>
+        <div class="ft-contact">
+          <div class="footer-contact-line"><span class="footer-contact-icon">📍</span> <span id="footer-address">Set in Admin → Settings</span></div>
+          <div class="footer-contact-line"><span class="footer-contact-icon">📞</span> <span id="footer-phone">Set in Admin → Settings</span></div>
+          <div class="footer-contact-line"><span class="footer-contact-icon">✉️</span> <span id="footer-email">Set in Admin → Settings</span></div>
+        </div>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col">
+          <div class="ft-col-title">Shop</div>
+          <a href="/collection" class="ft-link" onclick="showCollectionPage();return false;">Collection</a>
+          <a href="/collection" class="ft-link" onclick="showCollectionPage();return false;">Best Sellers</a>
+          <a href="/scent-finder" class="ft-link" onclick="showScentFinderPage();return false;">Find Your Scent</a>
+          <a href="/#reviews" class="ft-link" onclick="showHomePage();setTimeout(function(){document.getElementById('reviews').scrollIntoView({behavior:'smooth',block:'start'});},50);return false;">Reviews</a>
+          <a href="/#about" class="ft-link" onclick="showHomePage();setTimeout(function(){document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});},50);return false;">Our Story</a>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-title">Connect</div>
+          <a href="/policy/shipping" class="ft-link" onclick="showPolicyPage('shipping');return false;">Shipping</a>
+          <a href="/policy/return" class="ft-link" onclick="showPolicyPage('return');return false;">Returns &amp; Refunds</a>
+          <a href="/policy/terms" class="ft-link" onclick="showPolicyPage('terms');return false;">Terms &amp; Conditions</a>
+          <a href="/policy/privacy" class="ft-link" onclick="showPolicyPage('privacy');return false;">Privacy Policy</a>
+          <a href="/#contact" class="ft-link" onclick="openContactOverlay();return false;">Contact Us</a>
+          <a href="/track-order" class="ft-link" onclick="openTrackOverlay();return false;">Track Order</a>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-title">Account</div>
+          <a href="/account/orders" class="ft-link" onclick="footerAccount('orders');return false;">Orders</a>
+          <a href="/account/wishlist" class="ft-link" onclick="footerAccount('wishlist');return false;">Wish List</a>
+          <a href="/account/profile" class="ft-link" onclick="footerAccount('profile');return false;">Profile</a>
+          <a href="/account/points" class="ft-link" onclick="footerAccount('points');return false;">Points</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft-social">
+    <a href="/" class="footer-social-btn" id="footerIG" title="Instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1"/></svg></a>
+    <a href="/" class="footer-social-btn" id="footerFB" title="Facebook" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v7h3v-7h2.2l.8-3H14v-1.5c0-.5.3-1 .9-1H16V8Z"/></svg></a>
+    <a href="/" class="footer-social-btn" id="footerWA" title="WhatsApp" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3Z"/><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Z"/></svg></a>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy" id="footerCopy">© 2026 Essentra</div>
+    <div class="footer-policy-row">
+      <a href="/policy/privacy" class="footer-policy-link" onclick="showPolicyPage('privacy');return false;">Privacy Policy</a>
+      <a href="/policy/terms" class="footer-policy-link" onclick="showPolicyPage('terms');return false;">Terms &amp; Conditions</a>
+      <a href="/policy/return" class="footer-policy-link" onclick="showPolicyPage('return');return false;">Return Policy</a>
+      <a href="/policy/shipping" class="footer-policy-link" onclick="showPolicyPage('shipping');return false;">Shipping Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- REVIEW MODAL -->
+<div class="modal-overlay" id="reviewOverlay" onclick="if(event.target===this)closeReviewModal()">
+  <div class="auth-card" style="text-align:left">
+    <button class="modal-close" onclick="closeReviewModal()" title="Close" aria-label="Close">✕</button>
+    <div class="auth-title" style="text-align:center">Write a <em>Review</em></div>
+    <div class="auth-sub" style="text-align:center">Share your experience. Your review will appear on the homepage after admin approval.</div>
+    <div class="form-group"><label class="form-label" for="rv-name">Your Name</label><input autocomplete="name" name="rv-name" class="form-input" id="rv-name" maxlength="40" placeholder="Your name"/></div>
+    <div class="form-group"><label class="form-label">Rating</label>
+      <div class="rv-stars" id="rv-stars">
+        <button type="button" onclick="setReviewRating(1)" aria-label="1 star">★</button><button type="button" onclick="setReviewRating(2)" aria-label="2 stars">★</button><button type="button" onclick="setReviewRating(3)" aria-label="3 stars">★</button><button type="button" onclick="setReviewRating(4)" aria-label="4 stars">★</button><button type="button" onclick="setReviewRating(5)" aria-label="5 stars">★</button>
+      </div>
+    </div>
+    <div class="form-group"><label class="form-label" for="rv-text">Your Review</label><textarea autocomplete="off" name="rv-text" class="form-textarea" id="rv-text" rows="4" maxlength="400" placeholder="What did you think of your order?"></textarea></div>
+    <div id="rv-error" style="display:none;color:#dd8a8a;font-size:.76rem;margin-bottom:.8rem"></div>
+    <button class="submit-product-btn" style="width:100%" onclick="submitReview()">Submit Review</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Product details">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-body">
+      <div class="modal-scroll">
+        <div class="modal-head">
+          <div class="modal-brand" id="modalBrand"></div>
+          <div class="modal-name" id="modalName"></div>
+          <div class="modal-badges" id="modalBadges"></div>
+        </div>
+        <div class="modal-section modal-section-sizes">
+          <div class="modal-size-label">Select Size</div>
+          <div class="modal-sizes" id="modalSizes"></div>
+        </div>
+        <div class="modal-section" id="modalAtomizerWrap" style="display:none">
+          <div class="modal-size-label">Extra Premium Atomizer <span class="atz-opt">Optional</span></div>
+          <div id="modalAtomizer"></div>
+        </div>
+        <div class="modal-section" id="modalNotesWrap">
+          <div class="modal-size-label">Fragrance Notes</div>
+          <div class="modal-notes-grid" id="modalNotesGrid" hidden></div>
+        </div>
+        <div class="modal-section" id="modalDescWrap"><div class="modal-size-label">About</div><div class="modal-desc" id="modalDesc"></div></div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-price-wrap">
+          <div class="modal-price-label">Price</div>
+          <div class="modal-price" id="modalPrice">৳ —</div>
+        </div>
+        <button class="modal-add" onclick="addModalToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <div class="cart-title">Your Selections</div>
+    <button class="cart-close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">৳ 0</span></div>
+    <div class="cart-subtotal"><span id="deliveryLabel">Delivery</span><span id="deliveryAmt">৳ —</span></div>
+    <div class="cart-total"><span>Total</span><span id="cartTotal">৳ 0</span></div>
+    <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-container">
+    <div class="checkout-header">
+      <div class="checkout-logo"><img src="images/logo.webp" alt="Essentra" width="38" height="38" style="height:38px;width:auto;object-fit:contain;display:block"/></div>
+      <button class="checkout-close" onclick="closeCheckout()">✕ Close</button>
+    </div>
+
+    <!-- Main checkout form -->
+    <div id="checkoutMain">
+      <div class="co2-body">
+        <div class="co2-main">
+          <div class="co2-card">
+            <div class="co2-card-head"><span class="co2-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>Your Items</div>
+            <div class="co2-card-body co2-items-body"><div id="checkoutItems"></div></div>
+          </div>
+
+          <div class="co2-card">
+            <div class="co2-card-head"><span class="co2-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg></span>Receiver Information</div>
+            <div class="co2-card-body">
+              <div class="form-row">
+                <div class="form-group"><label class="form-label" for="co-name">Receiver Name <b>*</b></label><input autocomplete="name" name="co-name" class="form-input" id="co-name" placeholder="Receiver's full name"/></div>
+                <div class="form-group"><label class="form-label" for="co-phone">Phone Number <b>*</b></label><input autocomplete="tel" inputmode="tel" name="co-phone" class="form-input" id="co-phone" placeholder="01XXXXXXXXX"/></div>
+              </div>
+              <div class="form-group"><label class="form-label" for="co-email">Email Address <span class="co2-opt">Optional</span></label><input autocomplete="email" name="co-email" class="form-input" id="co-email" placeholder="your@email.com"/></div>
+            </div>
+          </div>
+
+          <div class="co2-card">
+            <div class="co2-card-head"><span class="co2-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6h11v9H2zM13 9h4l4 3v3h-8z"/><circle cx="7" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></svg></span>Delivery Location</div>
+            <div class="co2-card-body">
+              <div class="co2-loc-row">
+                <div class="form-group"><label class="form-label" for="co-city">City <b>*</b></label><select name="co-city" class="form-select" id="co-city" onchange="onCityChange()"><option value="">Select city...</option></select></div>
+                <div class="form-group"><label class="form-label" for="co-zoneSel">Zone <b>*</b></label><select name="co-zoneSel" class="form-select" id="co-zoneSel" onchange="onZoneChange()" disabled><option value="">Select zone...</option></select></div>
+                <div class="form-group"><label class="form-label" for="co-area">Area <span class="co2-opt">Optional</span></label><select name="co-area" class="form-select" id="co-area" disabled><option value="">Select area...</option></select></div>
+              </div>
+              <input type="hidden" id="co-zone" value=""/>
+              <div class="co2-zone-hint" id="co-zoneHint"></div>
+              <div class="form-group"><label class="form-label" for="co-address">Full Address <b>*</b></label><input autocomplete="street-address" name="co-address" class="form-input" id="co-address" placeholder="House/Flat No., Road No., Area Name"/></div>
+              <div class="form-group"><label class="form-label" for="co-note">Order Notes <span class="co2-opt">Optional</span></label><textarea autocomplete="off" name="co-note" class="form-input form-textarea" id="co-note" placeholder="Any special instructions for delivery..." style="min-height:84px;resize:vertical"></textarea></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="co2-side">
+          <div class="co2-summary">
+            <div class="co2-sum-title"><span class="co2-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2zM8 7h8v2H8zm0 4h8v2H8z"/></svg></span>Order Summary</div>
+            <div class="order-totals">
+              <div class="order-line"><span>Subtotal</span><span id="co-subtotal">৳ 0</span></div>
+              <div class="order-line" id="co-tierLine" style="display:none"><span id="co-tierLabel">Spend Discount</span><span id="co-tierAmt">-৳ 0</span></div>
+              <div class="order-line" id="co-couponLine" style="display:none"><span id="co-couponLabel">Coupon</span><span id="co-couponAmt">-৳ 0</span></div>
+              <div class="order-line" id="co-pointsLine" style="display:none"><span>Essentra Points</span><span id="co-pointsAmtDisplay">-৳ 0</span></div>
+              <div class="order-line"><span id="co-deliveryLabel">Delivery</span><span id="co-delivery">Select zone to calculate</span></div>
+              <div class="order-line total"><span>Total</span><span id="co-total">৳ 0</span></div>
+            </div>
+            <div class="coupon-apply-row" id="couponApplyRow">
+              <input autocomplete="off" aria-label="Coupon Code" name="co-couponCode" class="form-input" id="co-couponCode" placeholder="Enter coupon code"/>
+              <button class="coupon-apply-btn" onclick="applyCouponCode()">Apply</button>
+            </div>
+            <div class="coupon-applied-msg" id="couponAppliedMsg" style="display:none"></div>
+            <div class="coupon-error-msg" id="couponErrorMsg" style="display:none"></div>
+            <div id="pointsRedeemBlock" class="points-option-card" style="display:none">
+            <div class="points-option-title">Essentra Points <span class="points-option-sep">·</span> <span id="pointsAvailableLabel">0</span> PTS available</div>
+            <div class="coupon-apply-row" id="pointsApplyRow">
+              <input aria-label="Points to redeem (1 pt = ৳1)" name="co-pointsAmt" class="form-input" id="co-pointsAmt" type="number" min="0" placeholder="Points to redeem (1 pt = ৳1)"/>
+              <button class="coupon-apply-btn" onclick="applyPointsRedemption()">Apply</button>
+            </div>
+            <div class="coupon-applied-msg" id="pointsAppliedMsg" style="display:none"></div>
+            <div class="coupon-error-msg" id="pointsErrorMsg" style="display:none"></div>
+          </div>
+          </div>
+
+          <div class="co2-card co2-pay">
+            <div class="co2-card-head"><span class="co2-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18a1 1 0 0 1 1 1v3H2V6a1 1 0 0 1 1-1zM2 11h20v7a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/></svg></span>Payment Method</div>
+            <div class="co2-card-body">
+              <div class="payment-methods" id="paymentMethods">
+            <label class="payment-method selected" onclick="selectPayment('bkash',this)">
+              <input type="radio" name="pm" value="bkash" checked style="display:none"/>
+              <div class="pm-icon" style="width:52px;height:32px;display:flex;align-items:center;justify-content:center;background:#ffffff;border-radius:4px;flex-shrink:0;padding:3px;box-sizing:border-box">
+                <img src="images/img7.png" alt="bKash" width="308" height="160" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain"/>
+              </div>
+              <div class="pm-info"><div class="pm-name">bKash</div><div class="pm-desc">Send payment via bKash personal/merchant</div></div>
+              <span class="pm-tag">Popular</span>
+            </label>
+            <label class="payment-method" onclick="selectPayment('nagad',this)">
+              <input type="radio" name="pm" value="nagad" style="display:none"/>
+              <div class="pm-icon" style="width:52px;height:32px;display:flex;align-items:center;justify-content:center;background:#ffffff;border-radius:4px;flex-shrink:0;padding:3px;box-sizing:border-box">
+                <img src="images/img8.png" alt="Nagad" width="369" height="160" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain"/>
+              </div>
+              <div class="pm-info"><div class="pm-name">Nagad</div><div class="pm-desc">Send payment via Nagad</div></div>
+            </label>
+            <label class="payment-method" onclick="selectPayment('rocket',this)">
+              <input type="radio" name="pm" value="rocket" style="display:none"/>
+              <div class="pm-icon" style="width:52px;height:32px;display:flex;align-items:center;justify-content:center;background:#ffffff;border-radius:4px;flex-shrink:0;padding:2px;box-sizing:border-box">
+                <img src="images/img9.png" alt="Rocket" width="160" height="160" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain"/>
+              </div>
+              <div class="pm-info"><div class="pm-name">Rocket</div><div class="pm-desc">Dutch-Bangla Rocket MFS</div></div>
+            </label>
+            <label class="payment-method" onclick="selectPayment('cod',this)">
+              <input type="radio" name="pm" value="cod" style="display:none"/>
+              <div class="pm-icon" style="width:52px;height:32px;display:flex;align-items:center;justify-content:center;background:#ffffff;border-radius:4px;flex-shrink:0;padding:2px;box-sizing:border-box">
+                <img src="images/img10.png" alt="Cash on Delivery" width="512" height="512" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain"/>
+              </div>
+              <div class="pm-info"><div class="pm-name">Cash on Delivery</div><div class="pm-desc">Pay when you receive your order</div></div>
+              <span class="pm-tag">COD</span>
+            </label>
+          </div>
+              <!-- Payment instructions (shown dynamically) -->
+          <div class="payment-instructions" id="pmInstructions">
+            <strong id="pmInstTitle">How to pay via bKash</strong>
+            <span id="pmInstBody"></span>
+            <div class="trx-field" id="trxField">
+              <div class="form-group" style="margin-bottom:0"><label class="form-label" for="co-trxid">Transaction ID (TrxID) *</label><input autocomplete="off" name="co-trxid" class="form-input" id="co-trxid" placeholder="e.g. AB12CD34EF"/></div>
+            </div>
+          </div>
+            </div>
+          </div>
+
+          <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+          <p class="co2-terms">By placing your order you agree to our terms. We will confirm your order via phone/WhatsApp within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success screen -->
+    <div class="order-success" id="orderSuccess">
+      <div class="success-icon">✨</div>
+      <div class="success-title">Order Placed!</div>
+      <div class="success-subtitle" id="successMsg">Thank you for your order. We will confirm within 24 hours via phone/WhatsApp.</div>
+      <div class="order-id-box" id="successOrderId"></div>
+      <button type="button" class="success-track-btn" id="successTrackBtn" onclick="trackJustPlaced()">Track This Order</button>
+      <button class="success-close-btn" onclick="closeCheckout()">Continue Shopping</button>
+      <div id="successAcctLink" style="display:none;margin-top:1rem;text-align:center"><a href="/account/orders" onclick="closeCheckout();showAccountPage();return false;" style="color:var(--gold);text-decoration:none;font-size:.75rem;letter-spacing:.06em">View My Orders →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACK ORDER (public lookup) -->
+<div class="search-overlay" id="trackOverlay" onclick="if(event.target===this)closeTrackOverlay()">
+  <button class="search-overlay-close" onclick="closeTrackOverlay()" title="Close" aria-label="Close tracking">✕</button>
+  <div class="trk-modal" role="dialog" aria-label="Track your order">
+    <h2 class="trk-modal-title">Track Your <em>Order</em></h2>
+    <p class="trk-modal-sub">Enter your Order ID and the phone number you used at checkout.</p>
+    <div class="trk-form">
+      <div class="form-group"><label class="form-label" for="trkOrderId">Order ID</label><input class="form-input" id="trkOrderId" autocomplete="off" placeholder="e.g. 1731140000000-AB12CD34" onkeydown="if(event.key==='Enter')trackOrderLookup()"/></div>
+      <div class="form-group"><label class="form-label" for="trkPhone">Phone Number</label><input class="form-input" id="trkPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" onkeydown="if(event.key==='Enter')trackOrderLookup()"/></div>
+      <button type="button" class="btn-primary trk-go" id="trkGo" onclick="trackOrderLookup()">Track Order</button>
+    </div>
+    <div id="trkMsg" class="trk-msg" role="status" aria-live="polite"></div>
+    <div id="trkResult"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>/* failsafe: never leave the preloader stuck */setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("hide");},5000);</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+<script defer src="supabase-config.js?v=20261124"></script>
+<script defer src="locations.js?v=20261124"></script>
+<script defer src="script.js?v=20261124"></script>
+<script defer src="router.js?v=20261124"></script>
+<script defer src="popups-config.js?v=20261124"></script>
+<script defer src="popups.js?v=20261124"></script>
+<script defer src="popups-admin.js?v=20261124"></script>
+<script defer src="fixes.js?v=20261124"></script>
+</body>
+</html>
